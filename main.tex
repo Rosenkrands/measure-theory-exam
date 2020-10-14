@@ -102,6 +102,27 @@
     \end{itemize}
 \end{itemize}
 
+\subsection{Martingales}
+
+\subsubsection{One-dimensional Brownian Motion}
+Let $B$ be a one-dimensional $(\mathcal{F}_t)_{t\geq 0}$-Brownian motion.
+Then $B$ is a $(\mathcal{F}_t)_{t\geq 0}$ martingale.
+In particular, every one-dimensional standard Brownian motion $B$ is a martingale with respect to its natural filtration $(\mathcal{B}_t^B)_{t\geq 0}$.
+By virtue of Remark 6.7 we can further conclude that every one-dimensional standard Brownian motion $B$ is a martingale on the standard filtered probability space $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}_t^B})_{t\geq 0},\tilde{\mathbb{P}})$ obtained by completing $(\Omega, \mathcal{F},(\mathcal{F}_t^B)_{t\geq 0},\mathbb{P})$.
+
+Let us first recall that
+\begin{align}
+    \int_{\Omega} |B_t| \, d\mathbb{P} = \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty,
+    \mathbb{E}[B_t] = \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
+\end{align}
+for every $t > 0$.
+Since $B_0 = 0$, $\mathbb{P}-a.s.$, it follows in particular that $B_t$ is $\mathbb{P}$-integrable with $\mathbb{E}[B_t] = 0$ for all $t \geq 0$.
+For all $0 \leq s \leq t < \infty$, we further observe that, $\mathbb{P}-a.s.$,
+\begin{align}
+    \mathbb{E}^{\mathcal{F}_s}[B_t] = \mathbb{E}^{\mathcal{F}_s}[B_t - B_s] + \mathbb{E}^{\mathcal{F}_s} = \mathbb{E}[B_t - B_s] + B_s = \mathbb{E}[B_t] - \mathbb{E}[B_s] + B_s, 
+\end{align}
+since the increment $B_t - B_s$ is $\mathcal{F}_s$-independent and $B_s$ is $\mathcal{F}_s$-measurable.
+
 \newpage
 
 \section{Itô-formlen}
