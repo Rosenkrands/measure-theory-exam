@@ -12,10 +12,10 @@ jobs:
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@master
       with:
-        root_file: main.tex
+        root_file: presentation.tex
     - name: Check pdf file
       run: |
-        file main.pdf | grep -q ' PDF '
+        file presentation.pdf | grep -q ' PDF '
     - name: Upload
       run: |
         set -e
@@ -32,11 +32,11 @@ jobs:
         git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
         # Copy and commit the PDF file
         mkdir -p "$GITHUB_WORKSPACE/deploy"
-        cp -f main.pdf "$GITHUB_WORKSPACE/deploy/main.pdf"
+        cp -f presentation.pdf "$GITHUB_WORKSPACE/deploy/presentation.pdf"
         cd "$GITHUB_WORKSPACE/deploy"
         git init
         git checkout --orphan gh-pages
-        git add main.pdf
+        git add presentation.pdf
         git commit -m "[github actions] deploy"
         git remote add origin git@github.com:rosenkrands/measure-theory-exam.git
         git push --force --set-upstream origin gh-pages
