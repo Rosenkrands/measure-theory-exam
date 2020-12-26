@@ -1,0 +1,130 @@
+\documentclass{beamer}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+% american mathematical society
+\usepackage{amsmath,amsthm,amssymb}
+
+% reversed cases enviroment
+\newenvironment{rcases}{\left.\begin{aligned}}{\end{aligned}\right\rbrace}
+
+% drawing functionality
+\usepackage{tikz}
+\usetikzlibrary{matrix,patterns}
+
+% equation numbering
+\numberwithin{equation}{section}
+
+% theorem types
+\newtheorem{proposition}{Proposition}
+
+% math operators
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\var}{Var}
+\DeclareMathOperator*{\cov}{Cov}
+\DeclareMathOperator{\VaR}{VaR}
+\DeclareMathOperator{\cvar}{CVaR}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+
+% additional mathematical fonts
+\usepackage{mathrsfs}
+
+% remove navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% add slide numbers
+\setbeamertemplate{footline}[frame number]
+
+% title
+\title{Measure Theory}
+\subtitle{Exam}
+\author{Kasper Rosenkrands}
+\institute{Aalborg University}
+\date{E20}
+
+% toc at each section
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection, hideothersubsections]
+  \end{frame}
+}
+
+% definition of comment function
+\newcommand{\comment}[1]{
+    \begin{center}
+        \colorbox{yellow}{
+            \textsf{
+                \textbf{#1}
+            }
+        }
+    \end{center}
+}
+\newcommand{\task}[1]{
+    \begin{center}
+        \colorbox{red}{
+            \textsf{
+                \textbf{#1}
+            }
+        }
+    \end{center}
+}
+
+\newenvironment{frame2}{\begin{frame}\frametitle{{\normalsize \secname} \\ {\large \subsecname}}}{\end{frame}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Conditional Expectation}
+
+\section{Brownian Motions}
+
+\section{Martingales \& Quadratic Variation}
+
+\subsection{Prerequisties}
+
+\begin{frame2}
+    \task{Define these things}
+    \begin{itemize}
+        \item Brownian Motion
+        \item Martingale
+        \item Natural Filtration
+    \end{itemize}
+\end{frame2}
+
+\subsection{One-dimensional Brownian Motions}
+
+\begin{frame2}
+    If $B$ is a one-dimensional $(\mathcal{F}_t)_{t\geq 0}$-Brownian motion, then $B$ is a $(\mathcal{F}_t)_{t\geq 0}$ martingale.
+
+    In particular, every one-dimensional standard Brownian motion $B$ is a martingale with respect to its natural filtration $(\mathcal{B}_t^B)_{t\geq 0}$.
+
+    \task{Repeat Remark 6.7}
+    By virtue of Remark 6.7 we can further conclude that every one-dimensional standard Brownian motion $B$ is a martingale on the standard filtered probability space $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}_t^B})_{t\geq 0},\tilde{\mathbb{P}})$ obtained by completing $(\Omega, \mathcal{F},(\mathcal{F}_t^B)_{t\geq 0},\mathbb{P})$.
+\end{frame2}
+
+\begin{frame2}
+    Let us first recall that
+    \begin{align}
+        \int_{\Omega} |B_t| \, d\mathbb{P} = \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty,
+        \mathbb{E}[B_t] = \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
+    \end{align}
+    for every $t > 0$.
+\end{frame2}
+
+\section{Itôs Formula}
+
+\section{Stochastic Integrals}
+
+\section{Girsanov-Transformation}
+
+\end{document}
