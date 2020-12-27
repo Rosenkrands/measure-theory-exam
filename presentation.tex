@@ -95,28 +95,54 @@
 \begin{frame2}
     \task{Define these things}
     \begin{itemize}
-        \item Brownian Motion
+        \item Brownian Motions (only briefly as this is topic 2)
         \item Martingale
         \item Natural Filtration
     \end{itemize}
 \end{frame2}
 
+\begin{frame2}
+    Let $(M_t)_{t\in I}$ be an adapted $\mathbb{R}$-valued stochastic process such that $M_t: \ \Omega \rightarrow \mathbb{R}$ is $\mathbb{P}$-integrable for every $t\in I$.
+    \begin{itemize}
+        \item<-1> $M$ is called a $(\mathcal{F}_t)_{t\in I}$-martingale iff
+        \begin{align}
+            \mathbb{E}^{\mathcal{F}_s}[M_t] = M_s, \quad \mathbb{P}-\text{a.s.\! for all } s,t \in I \text{ with } s\leq t.
+        \end{align}
+        \item<2-> $M$ is called a $(\mathcal{F}_t)_{t\in I}$-submartingale iff
+        \begin{align}
+            \mathbb{E}^{\mathcal{F}_s}[M_t] \leq M_s, \quad \mathbb{P}-\text{a.s.\! for all } s,t \in I \text{ with } s\leq t.
+        \end{align}
+        \item<3-> Analogously for supermartingale.
+    \end{itemize}
+\end{frame2}
+
+\begin{frame2}
+    
+\end{frame2}
+
 \subsection{One-dimensional Brownian Motions}
 
 \begin{frame2}
-    If $B$ is a one-dimensional $(\mathcal{F}_t)_{t\geq 0}$-Brownian motion, then $B$ is a $(\mathcal{F}_t)_{t\geq 0}$ martingale.
+    If $B$ is a one-dimensional $(\mathcal{F}_t)_{t\geq 0}$-Brownian motion, then $B$ is a $(\mathcal{F}_t)_{t\geq 0}$-martingale.
 
     In particular, every one-dimensional standard Brownian motion $B$ is a martingale with respect to its natural filtration $(\mathcal{B}_t^B)_{t\geq 0}$.
-
-    \task{Repeat Remark 6.7}
+    \vspace{5pt}
+    \hrule
+    \vspace{5pt}
+    %\task{Repeat Remark 6.7}
+    Remark 6.7. Let $(M_t)_{t \in I}$ be a $(\mathcal{F}_t)_{t\in I}$-martingale and denote by $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}}_t)_{t\in I},\tilde{\mathbb{P}})$ the completion of $(\Omega, \mathcal{F},(\mathcal{F}_t)_{t\in I},\mathbb{P})$.
+    Then $(M_t)_{t\in I}$ is a $(\tilde{\mathcal{F}}_t)_{t\in I}$-martingale as well, provided that $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}}_t)_{t\in I},\tilde{\mathbb{P}})$ is chosen as the underlying filtered probability space.
+    \vspace{5pt}
+    \hrule
+    \vspace{5pt}
     By virtue of Remark 6.7 we can further conclude that every one-dimensional standard Brownian motion $B$ is a martingale on the standard filtered probability space $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}_t^B})_{t\geq 0},\tilde{\mathbb{P}})$ obtained by completing $(\Omega, \mathcal{F},(\mathcal{F}_t^B)_{t\geq 0},\mathbb{P})$.
 \end{frame2}
 
 \begin{frame2}
     Let us first recall that
     \begin{align}
-        \int_{\Omega} |B_t| \, d\mathbb{P} = \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty,
-        \mathbb{E}[B_t] = \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
+        \int_{\Omega} |B_t| \, d\mathbb{P} &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty, \\
+        \mathbb{E}[B_t] &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
     \end{align}
     for every $t > 0$.
 \end{frame2}
