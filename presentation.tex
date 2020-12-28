@@ -30,6 +30,7 @@
 
 % additional mathematical fonts
 \usepackage{mathrsfs}
+\usepackage{bbm}
 
 % remove navigation bar
 \beamertemplatenavigationsymbolsempty
@@ -109,6 +110,47 @@
         \item Exercise 5.43
         \item Exercise 5.44
     \end{itemize}
+\end{frame2}
+
+\subsection{Definition}
+
+\begin{frame2}
+    \textbf{Definition.} Let $(\Omega,\mathcal{F},\mathbb{P})$ be a probability space and $d\in\mathbb{N}$.
+    Then a stochastic process $B = (B_t)_{t\geq 0}$ on $(\Omega,\mathcal{F},\mathbb{P})$ with target space $(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ and parameter set $[0,\infty)$ is called a $d$-dimensional \textit{standard Brownian motion} or, synonymously, \textit{Wiener process} on $(\Omega,\mathcal{F},\mathbb{P})$, iff it has the following four properties:
+    \begin{enumerate}
+        \item All its paths $B_\bullet(\omega)$, $\omega \in \Omega$, are continuous.
+        \item $\mathbb{P}(\{B_0 = 0\})=1$ or, equivalently, $\mathbb{P} \circ B^{-1}_0 = \nu_0$.
+        \item $B$ has independent and stationary increments.
+        \item For all $t > s \geq 0$, the distribution of $B_t - B_s$ is a $d$-dimensional centered Gaussian distribution with covariance matrix $(t-s)\mathbbm{1}_d$ or, in symbols
+        \begin{align}
+            \mathbb{P} \circ (B_t - B_s)^{-1} = \nu_{t - s}.
+        \end{align} 
+    \end{enumerate}
+\end{frame2}
+
+\subsection{Exercise 5.43}
+
+\begin{frame2}
+    \textbf{Exercise.} Compute the probabilities $\mathbb{P}(\{B_1 = 0\})$ and $\mathbb{P}(\{B_\bullet = f\})$ for $f \in C([0,\infty),\mathbb{R}^d)$.
+
+    \vspace{10pt}
+    \textbf{Solution.} 
+    For the first part we have
+    \begin{align}
+        \mathbb{P}(\{B_1 = 0\}) &= \mathbb{P}(\{B_1 - B_0 = 0\}) \\
+        &= \int_0^0 \frac{e^{-\|x\|^2/2}}{(2\pi)^{d/2}}\,\text{d}x = 0.
+    \end{align}
+    For the second part let us first look at the event itself
+    \begin{align}
+        \{B_\bullet = f\} = \{\omega \in \Omega \ | \ \forall t\geq 0\,:\, B_t = f(t)\}
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    Further we observe that
+    \begin{align}
+        \{B_1 = f(1)\} \subset \{B_\bullet = f\}
+    \end{align}
 \end{frame2}
 
 \section{Martingales \& Quadratic Variation}
