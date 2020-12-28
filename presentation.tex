@@ -86,11 +86,34 @@
 
 \section{Conditional Expectation}
 
+\subsection{Strategy}
+\begin{frame2}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{frame2}
+
 \section{Brownian Motions}
+
+\subsection{Strategy}
+\begin{frame2}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{frame2}
 
 \section{Martingales \& Quadratic Variation}
 
-\subsection{Prerequisties}
+\subsection{Strategy}
+\begin{frame2}
+    \begin{itemize}
+        \item Introduce the martingale definition
+        \item Any additional concepts needed
+        \item Show that one-dimensional Brownian motion is a martingale
+    \end{itemize}
+\end{frame2}
+
+\subsection{Prerequisites}
 
 \begin{frame2}
     \task{Define these things}
@@ -110,14 +133,10 @@
         \end{align}
         \item<2-> $M$ is called a $(\mathcal{F}_t)_{t\in I}$-submartingale iff
         \begin{align}
-            \mathbb{E}^{\mathcal{F}_s}[M_t] \leq M_s, \quad \mathbb{P}-\text{a.s.\! for all } s,t \in I \text{ with } s\leq t.
+            \mathbb{E}^{\mathcal{F}_s}[M_t] \geq M_s, \quad \mathbb{P}-\text{a.s.\! for all } s,t \in I \text{ with } s\leq t.
         \end{align}
         \item<3-> Analogously for supermartingale.
     \end{itemize}
-\end{frame2}
-
-\begin{frame2}
-    
 \end{frame2}
 
 \subsection{One-dimensional Brownian Motions}
@@ -139,18 +158,53 @@
 \end{frame2}
 
 \begin{frame2}
-    Let us first recall that
-    \begin{align}
-        \int_{\Omega} |B_t| \, d\mathbb{P} &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty, \\
-        \mathbb{E}[B_t] &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
-    \end{align}
-    for every $t > 0$.
+    \begin{itemize} 
+        \item Let us first recall that
+        \begin{align}
+            \int_{\Omega} |B_t| \, d\mathbb{P} &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty, \\
+            \mathbb{E}[B_t] &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
+        \end{align}
+        for every $t > 0$.
+    \end{itemize}
+\end{frame2}
+
+\begin{frame2}
+    \begin{itemize}
+        \item Since $B_0 = 0$, $\mathbb{P}-$a.s., it follows in particular that $B_t$ is $\mathbb{P}$-integrable with $\mathbb{E}[B_t] = 0$ for all $t \geq 0$.
+        \item For all $0 \leq s \leq t < \infty$, we further observe that, $\mathbb{P}-$a.s.,
+        \begin{align}
+            \mathbb{E}^{\mathcal{F}_s}[B_t] &= \mathbb{E}^{\mathcal{F}_s}[B_t - B_s] + \mathbb{E}^{\mathcal{F}_s} \\
+             &= \mathbb{E}[B_t - B_s] + B_s = \mathbb{E}[B_t] - \mathbb{E}[B_s] + B_s, 
+        \end{align}
+        since the increment $B_t - B_s$ is $\mathcal{F}_s$-independent and $B_s$ is $\mathcal{F}_s$-measurable.
+    \end{itemize}
 \end{frame2}
 
 \section{Itôs Formula}
 
+\subsection{Strategy}
+\begin{frame2}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{frame2}
+
 \section{Stochastic Integrals}
 
+\subsection{Strategy}
+\begin{frame2}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{frame2}
+
 \section{Girsanov-Transformation}
+
+\subsection{Strategy}
+\begin{frame2}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{frame2}
 
 \end{document}
