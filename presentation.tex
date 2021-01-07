@@ -115,6 +115,7 @@
 \subsection{Definition}
 
 \begin{frame2}
+    \task{Define $\nu$} 
     \textbf{Definition.} Let $(\Omega,\mathcal{F},\mathbb{P})$ be a probability space and $d\in\mathbb{N}$.
     Then a stochastic process $B = (B_t)_{t\geq 0}$ on $(\Omega,\mathcal{F},\mathbb{P})$ with target space $(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ and parameter set $[0,\infty)$ is called a $d$-dimensional \textit{standard Brownian motion} or, synonymously, \textit{Wiener process} on $(\Omega,\mathcal{F},\mathbb{P})$, iff it has the following four properties:
     \begin{enumerate}
@@ -149,7 +150,50 @@
 \begin{frame2}
     Further we observe that
     \begin{align}
-        \{B_1 = f(1)\} \subset \{B_\bullet = f\}
+        \{B_1 = f(1)\} \subset \{B_\bullet = f\}.
+    \end{align}
+    Notice then that
+    \begin{align}
+        P(B_1 = f(1)) = 0 \quad \Rightarrow \quad P(B_\bullet = f) = 0.
+    \end{align}
+\end{frame2}
+
+\subsection{Exercise 5.44}
+
+\begin{frame2}
+    \textbf{Exercise.} 
+    Let $B$ be a one-dimensional standard Brownian motion on the probability space $(\Omega, \mathcal{F}, \mathbb{P})$ and let $\mathbb{E}[\cdot]$ denote the expectation with respect to $\mathbb{P}$.
+    Show that $\mathbb{E}[B_t] = 0$ and $\mathbb{E}[B_s B_t] = s \wedge t$ for all $s,t \geq 0$.
+
+    \vspace{10pt}
+    \textbf{Solution.}
+    To show the first part observe that from 2.\! we have that
+    \begin{align}
+        B_t = B_t - B_0.
+    \end{align}
+    It then follows from 4.\! that
+    \begin{align}
+        B_t - B_0 \sim N(0,t).
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    For the second part observe that from 3. $B$ has independent increments.
+    Without loss of generality assume that $s \leq t$.
+    Then we can rewrite in the following way
+    \begin{align}
+        \mathbb{E}[B_sB_t] &= \mathbb{E}[B_s((B_t - B_s) + B_s)] \\
+        &= \mathbb{E}[B_s(B_t - B_s)] + \mathbb{E}[B_s^2].
+    \end{align}
+    Because $B_s = B_s - B_0$ from 1., we have that
+    \begin{align}
+        \mathbb{E}[B_s(B_t - B_s)] &= \mathbb{E}[(B_s - B_0)(B_t - B_s)] \\
+        &= \mathbb{E}[(B_s - B_0)]\mathbb{E}[(B_t - B_s)] = 0.
+    \end{align} 
+    Where the second equality follows fromt the two increments being independent.
+    Finally we have
+    \begin{align}
+        \mathbb{E}[B_sB_t] = \mathbb{E}[B_s^2] = s.
     \end{align}
 \end{frame2}
 
@@ -162,7 +206,7 @@
         \item Any additional concepts needed
         \item Show that one-dimensional Brownian motion is a martingale
     \end{itemize}
-\end{frame2}
+ \end{frame2}
 
 \subsection{Prerequisites}
 
