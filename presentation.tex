@@ -127,18 +127,35 @@
 
 \begin{frame2}
     \textbf{Exercise.}
+    Recall that $\{\emptyset,\Omega\}$ is a sub-$\sigma$-algebra of $\mathcal{F}$.
+    Convince yourself of the validity of the formula
+    \begin{align}
+        \mathbb{E}^{\{\emptyset,\Omega\}}[f] = \mathbb{E}[f],\quad \mathbb{P}-\text{a.s.,}
+    \end{align}
+    for every $\mathbb{P}$-integrable $f \, : \, \Omega \rightarrow \mathbb{R}$.
 \end{frame2}
 
 \subsection{Exercise 4.48}
 
 \begin{frame2}
     \textbf{Exercise.}
+    \textit{Linearity.}
+    Let $\mathcal{A}$ be a sub-$\sigma$-algebra of $\mathcal{F}$, $\alpha,\beta \in \mathbb{R}$, and let $f,g \, : \, \Omega \rightarrow \mathbb{R}$ be $\mathbb{P}$-integrable.
+    Show that
+    \begin{align}
+        \mathbb{E}^\mathcal{A}[\alpha f + \beta g] = \mathbb{E}^\mathcal{A}[\alpha f] + \mathbb{E}^\mathcal{A}[\beta g], \quad \mathbb{P}-\text{a.s.} 
+    \end{align}
 \end{frame2}
 
 \subsection{Exercise 4.51}
 
 \begin{frame2}
     \textbf{Exercise.}
+    Let $m,n \in \mathbb{N}$, $m < n$, and $X_1, \ldots, X_n \, : \, \Omega \rightarrow \mathbb{R}$ be independent $\mathbb{P}$-integrable random variables.
+    Let
+    \begin{align}
+        \mathcal{F}_m:=\sigma(X_1,\ldots,X_m):=\sigma\left(\left\{X_i^{-1}(B)\,|\,B\in \right\}\right)
+    \end{align}
 \end{frame2}
 
 \section{Brownian Motions}
