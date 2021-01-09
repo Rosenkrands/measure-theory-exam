@@ -133,6 +133,10 @@
         \mathbb{E}^{\{\emptyset,\Omega\}}[f] = \mathbb{E}[f],\quad \mathbb{P}-\text{a.s.,}
     \end{align}
     for every $\mathbb{P}$-integrable $f \, : \, \Omega \rightarrow \mathbb{R}$.
+
+    \vspace{10pt}
+    \textbf{Solution.}
+    \task{to do}
 \end{frame2}
 
 \subsection{Exercise 4.48}
@@ -145,6 +149,10 @@
     \begin{align}
         \mathbb{E}^\mathcal{A}[\alpha f + \beta g] = \mathbb{E}^\mathcal{A}[\alpha f] + \mathbb{E}^\mathcal{A}[\beta g], \quad \mathbb{P}-\text{a.s.} 
     \end{align}
+
+    \vspace{10pt}
+    \textbf{Solution.}
+    \task{to do}
 \end{frame2}
 
 \subsection{Exercise 4.51}
@@ -162,6 +170,30 @@
     \begin{align}
         \mathbb{E}\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right], \\
         \mathbb{E}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right)\left(\prod_{j=m+1}^n \mathbb{E}[X_j]\right).
+    \end{align}
+
+    \vspace{10pt}
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Solution.}
+    For the first part we have that
+    \begin{align}
+        \text{for } i \leq m&: \ X_i \in \mathcal{M}(\mathcal{F}^m) \Rightarrow \mathbb{E}\left[X_i|\mathcal{F}^m\right] = X_i \\
+        \text{for } j > m&: \ X_j \perp \mathcal{F}^m \Rightarrow \mathbb{E}\left[X_j|\mathcal{F}^m\right] = \mathbb{E}[X_j].
+    \end{align}
+    Thus we have that
+    \begin{align}
+        \mathbb{E}\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right].
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    For the second part we have that, because $X_1,\ldots,X_m \in \mathcal{M}(F^m)$ and by independence
+    \begin{align}
+        \mathbb{E}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right) \mathbb{E}^{\mathcal{F}^m}\left[\prod_{j=m+1}^n X_j\right] \\
+        &= \left(\prod_{i=1}^m X_i\right) \mathbb{E}\left[\prod_{j=m+1}^n X_j\right] \\
+        &= \left(\prod_{i=1}^m X_i\right)\left(\prod_{j=m+1}^n \mathbb{E}[X_j]\right).
     \end{align}
 \end{frame2}
 
