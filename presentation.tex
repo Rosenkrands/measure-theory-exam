@@ -395,7 +395,7 @@
 \begin{frame2}
     \begin{itemize}
         \item Theorem 9
-        \item Prop 3
+        \item Proposition 3
         \item Exercise 10
     \end{itemize}
 \end{frame2}
@@ -407,24 +407,30 @@
     Let $0 < T \leq +\infty$ and $M = (M_t)_{0\leq t \leq T}$ be a complex-valued continuous local martingale.
     The following then holds
     \begin{enumerate}
-        \item If
+        \item If $\mathbb{E}(\sup_{0 \leq s \leq t} \| M_s \|) < \infty$ for every $ 0 \leq t \leq T$, then $M$ is a true martingale.
+        \item Suppose that $M$ is real-valued.
+        For all $0 \leq t \leq T$, $\mathbb{E}(\langle M \rangle_t) < \infty$ if and only if $M$ is a square integrable martingale.
+        In this case $M^2 - \langle M \rangle$ is a true martingale.
     \end{enumerate}
 \end{frame2}
 
-\subsection{Prop 3}
+\subsection{Proposition 3}
 
 \begin{frame2}
-    
+    \textbf{Proposition 3.}
+    Let $M \in \mathcal{M}_{c,loc}$ and consider $0 < T \leq + \infty$.
+    The complex-valued process defined as
+    \begin{align}
+        N_t := e^{\textbf{i}M_t + \frac{1}{2}\langle M \rangle_t}, \ t \geq 0,
+    \end{align}
+    is a continuous local martingale.
+    If $\mathbb{E}\left(e^{\frac{1}{2}\langle M \rangle_t}\right) < \infty$ for all $t \leq T$, then $N$ is a true martingale.
 \end{frame2}
 
 \subsection{Exercise 10}
 
 \begin{frame2}
     
-\end{frame2}
-
-\begin{frame2}
-    Show that
 \end{frame2}
 
 \end{document}
