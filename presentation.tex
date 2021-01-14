@@ -396,6 +396,7 @@
     \begin{itemize}
         \item Theorem 9
         \item Proposition 3
+        \item Theorem 10
         \item Exercise 10
     \end{itemize}
 \end{frame2}
@@ -427,10 +428,56 @@
     If $\mathbb{E}\left(e^{\frac{1}{2}\langle M \rangle_t}\right) < \infty$ for all $t \leq T$, then $N$ is a true martingale.
 \end{frame2}
 
+\subsection{Theorem 10}
+
+\begin{frame2}
+    \textbf{Theorem 10 (Lévy).}
+    Fix $d \in \mathbb{N}$.
+    If $M^1,\ldots,M^d$ are elements of $\mathcal{M}_{c,loc}$ starting at 0 almost surely satisfying that
+    \begin{align}
+        \langle M^i,M^j \rangle_t = \delta^{ij}t, \ t \geq 0,
+    \end{align}
+    then $M = (M^1, \ldots, M^d)$ is an $(\mathcal{F}_t)_{t \geq 0}$-Brownian motion.
+\end{frame2}
+
 \subsection{Exercise 10}
 
 \begin{frame2}
-    
+    \textbf{Exercise 10.}
+    Apply Theorem 9 to show that Proposition 3 holds.
+    Use this to show that the complex-valued process defined as
+    \begin{align}
+        \xi_t := exp\{ \textbf{i}N_t + \frac{1}{2}\| \lambda \|^2 t \}, \ t \geq 0,
+    \end{align}
+    is a true martingale, where
+    \begin{align}
+        N := \sum_{j = 1}^d \lambda_j M^j, \ \lambda_1,\ldots,\lambda_d \in \mathbb{R}^d,
+    \end{align}
+    in which $M_1, M_2, \ldots, M^d$ are as in Theorem 10.
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Solution.}
+    For the first part we need to show that
+    \begin{align}
+        \mathbb{E}\left[e^{\frac{1}{2}\langle M \rangle_t}\right] < \infty \Rightarrow \mathbb{E}\left[\sup_{0 \leq s \leq t}\| N_s \|\right] < \infty,
+    \end{align}
+    where
+    \begin{align}
+        N_t := e^{\textbf{i}M_t + \frac{1}{2}\langle M \rangle_t}.
+    \end{align}
+    Let us start by looking at
+    \begin{align}
+        \mathbb{E}\left[\sup_{0 \leq s \leq t} \| N_s \| \right] &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s + \frac{1}{2}\langle M \rangle_s} \|\right]\\
+        &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s} \| \cdot \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] \\
+        &= \mathbb{E}\left[\sup_s \|e^{\frac{1}{2}\langle M \rangle_s}\|\right] = \sup_s \mathbb{E}\left[ \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] < \infty
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    This concludes that $N_t$ is a true martingale.
+
+    For the second part
 \end{frame2}
 
 \end{document}
