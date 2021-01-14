@@ -385,7 +385,8 @@
 \subsection{Strategy}
 \begin{frame2}
     \begin{itemize}
-        \item 
+        \item Itô's formula for semi martingales (+ any necessary preceedings)
+        \item Exercise 8
     \end{itemize}
 \end{frame2}
 
@@ -466,18 +467,27 @@
     \begin{align}
         N_t := e^{\textbf{i}M_t + \frac{1}{2}\langle M \rangle_t}.
     \end{align}
+\end{frame2}
+
+\begin{frame2}
     Let us start by looking at
     \begin{align}
         \mathbb{E}\left[\sup_{0 \leq s \leq t} \| N_s \| \right] &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s + \frac{1}{2}\langle M \rangle_s} \|\right]\\
         &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s} \| \cdot \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] \\
         &= \mathbb{E}\left[\sup_s \|e^{\frac{1}{2}\langle M \rangle_s}\|\right] = \sup_s \mathbb{E}\left[ \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] < \infty
     \end{align}
+    This concludes that $N_t$ is a true martingale. 
 \end{frame2}
 
 \begin{frame2}
-    This concludes that $N_t$ is a true martingale.
-
-    For the second part
+    For the second part we first have that $N$ is a linear combination of $\mathcal{M}_{c,loc} \Rightarrow N \in \mathcal{M}_{c,loc}$.
+    
+    \vspace{10pt}
+    Further we have (from the proof of theorem 10) that
+    \begin{align}
+        \langle N \rangle_t = \| \lambda \|^2 \cdot t,
+    \end{align}
+    thereby $\xi_t$ is of the form in proposition 3.
 \end{frame2}
 
 \end{document}
