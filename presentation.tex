@@ -419,9 +419,9 @@
 
 \begin{frame2}
     We will start by observing that Itô's formula applied to the function $f(x,y) = xy$ results in the following integration by parts formula
-    \begin{align}
+    \begin{align*}
         X_tY_t = X_0Y_0 + \int_0^t X_s \, dY_s + \int_0^tY_s\, dX_s + \langle X,Y \rangle_t, \ \forall\, X,Y \in \mathcal{SM}^c.
-    \end{align}
+    \end{align*}
     Thus we get that
     \begin{align}
          N_t^{(2)} &= \sin(M_t)e^{\frac{1}{2}\langle M \rangle_t} \\
@@ -432,7 +432,7 @@
 \begin{frame2}
     Applying Itô's formula again we get
     \begin{align}
-        e^{\frac{1}{2}\langle M \rangle_t} &= 1 + \int_0^t\partial_{\langle M \rangle_s}e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \frac{1}{2}\int_0^t\partial^2_{\langle M \rangle_s} e^{\frac{1}{2}\langle M \rangle_s} \, d \langle\langle M \rangle\rangle_s \\
+        e^{\frac{1}{2}\langle M \rangle_t} &= 1 + \int_0^t\partial_{\langle M \rangle_s}e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \frac{1}{2}\int_0^t\partial^2_{\langle M \rangle_s} e^{\frac{1}{2}\langle M \rangle_s} \, d \langle\langle M \rangle\rangle_s \nonumber \\
         &= 1 + \frac{1}{2}\int_0^te^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s
     \end{align}
     \begin{align}
@@ -443,11 +443,14 @@
 
 \begin{frame2}
     Now inserting what we just found
-    \begin{align}
+    \begin{align*}
         N_t^{(2)} &= \sin(M_t)e^{\frac{1}{2}\langle M \rangle_t} \\
        &= \int_0^t \sin(M_s) \, d\left(e^{\frac{1}{2}\langle M \rangle_s}\right) + \int_0^t e^{\frac{1}{2}\langle M \rangle_s} \, d \left(\sin(M_s)\right) \\
-       &= \frac{1}{2}
-   \end{align}
+       &= \frac{1}{2}\int_0^t\sin(M_s)e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \int_0^t\cos(M_s)e^{\frac{1}{2}\langle M \rangle_s}\, dM_s \\
+       &\qquad - \frac{1}{2}\int_0^t\sin(M_s)e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s \\
+       &= \int_0^t\cos(M_s)e^{\frac{1}{2}\langle M \rangle_s}\, dM_s \\
+       &= \int_0^tN_t^{(1)} \, dM_s.
+   \end{align*}
 \end{frame2}
 
 \section{Girsanov-Transformation}
