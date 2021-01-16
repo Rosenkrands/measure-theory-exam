@@ -380,14 +380,74 @@
     \end{itemize}
 \end{frame2}
 
-\section{Itôs Formula}
+\section{Itô's Formula}
 
 \subsection{Strategy}
 \begin{frame2}
     \begin{itemize}
         \item Itô's formula for semi martingales (+ any necessary preceedings)
-        \item Exercise 8
+        \item Exercise 8 (Part of Example 4)
     \end{itemize}
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Theorem 7.}
+    %Let $X,Y \in \mathcal{SM}^c$ with decomposition $(M,A),(\bar{M},\bar{A}) \in \mathcal{M}_{c,loc} \times A_{loc}$, respectively.
+    %The mapping $H \in \mathcal{L}(X) \mapsto H \cdot X \in \mathcal{SM}^c$ enjoys the following properties (up to indishtinguishability)
+    %\begin{enumerate}
+        %\item 
+        Let $X = (X^{(1)},\ldots,X^{(d)})$, where $X^{(i)} \in \mathcal{SM}^c$, for all $i = 1,\ldots,d$.
+        If $f \, : \, \mathbb{R}^d \rightarrow \mathbb{R}$ is twice continuously differentiable and $X = (X^{(1)},\ldots,X^{(d)})$, then
+        \begin{align*}
+            f(X_t) = f(X_0) &+ \sum_{i = 1}^d\int_0^t\partial_{x_i}f(X_s)\, dX_s \\
+            &\quad+ \frac{1}{2}\sum_{i,j=1}^d\int_0^t\partial_{x_i}\partial_{x_j}f(X_s)\, d \langle X^{(i)},X^{(j)}\rangle_s.
+        \end{align*}
+    %\end{enumerate} 
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Example 4 (Complex Exponential Process).}
+    Let $M \in \mathcal{M}_{c,loc}$ starting at 0 and define for $t \geq 0$
+    \begin{align}
+        N_t^{(1)} := \cos(M_t)e^{\frac{1}{2}\langle M \rangle_t},\ N_t^{(2)} := \sin(M_t)e^{\frac{1}{2}\langle M \rangle_t}.
+    \end{align}
+    Verify that
+    \begin{align}
+        N_t^{(2)} = \int_0^t N_s^{(1)} \, dM_s, \ t \geq 0.
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    We will start by observing that Itô's formula applied to the function $f(x,y) = xy$ results in the following integration by parts formula
+    \begin{align}
+        X_tY_t = X_0Y_0 + \int_0^t X_s \, dY_s + \int_0^tY_s\, dX_s + \langle X,Y \rangle_t, \ \forall\, X,Y \in \mathcal{SM}^c.
+    \end{align}
+    Thus we get that
+    \begin{align}
+         N_t^{(2)} &= \sin(M_t)e^{\frac{1}{2}\langle M \rangle_t} \\
+        &= \int_0^t \sin(M_s) \, d\left(e^{\frac{1}{2}\langle M \rangle_s}\right) + \int_0^t e^{\frac{1}{2}\langle M \rangle_s} \, d \left(\sin(M_s)\right).
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    Applying Itô's formula again we get
+    \begin{align}
+        e^{\frac{1}{2}\langle M \rangle_t} &= 1 + \int_0^t\partial_{\langle M \rangle_s}e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \frac{1}{2}\int_0^t\partial^2_{\langle M \rangle_s} e^{\frac{1}{2}\langle M \rangle_s} \, d \langle\langle M \rangle\rangle_s \\
+        &= 1 + \frac{1}{2}\int_0^te^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s
+    \end{align}
+    \begin{align}
+        \sin(M_t) &= \int_0^t\partial_{M_s}\sin(M_s)\, dM_s + \frac{1}{2}\int_0^t\partial_{M_s}^2\sin(M_s) \, d \langle M \rangle_s \\
+        &= \int_0^t \cos(M_s) \, dM_s - \frac{1}{2}\int_0^t\sin(M_s)\, d\langle M \rangle_s.
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    Now inserting what we just found
+    \begin{align}
+        N_t^{(2)} &= \sin(M_t)e^{\frac{1}{2}\langle M \rangle_t} \\
+       &= \int_0^t \sin(M_s) \, d\left(e^{\frac{1}{2}\langle M \rangle_s}\right) + \int_0^t e^{\frac{1}{2}\langle M \rangle_s} \, d \left(\sin(M_s)\right) \\
+       &= \frac{1}{2}
+   \end{align}
 \end{frame2}
 
 \section{Girsanov-Transformation}
