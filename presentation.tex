@@ -435,7 +435,7 @@
     For $t > s$ we have that
     \begin{align*}
         \mathbb{E}^{\mathcal{F}_s}\left[B_t^2-t\right]&= \mathbb{E}^{\mathcal{F}_s}\left[(B_s+[B_t-B_s])^2\right]-t \\
-        &= \mathbb{E}^{\mathcal{F}_s}\left[B_s^2\right] +2\mathbb{E}^{\mathcal{F}_s}[B_s(B_t-B_s)] + \mathbb{E}^{\mathcal{F}_s}\left[(B_t-B_s)^2\right]-t \\
+        &= \mathbb{E}^{\mathcal{F}_s}\left[B_s^2\right] +2\mathbb{E}^{\mathcal{F}_s}[B_s(B_t-B_s)] + \mathbb{E}\left[(B_t-B_s)^2\right]-t \\
         &=B_s^2 + 2B_s \mathbb{E}^{\mathcal{F}_s}[B_t-B_s]+\mathbb{E}\left[(B_t-B_s)^2\right]-t \\
         &= B_s^2+2B_s\mathbb{E}[B_t-B_s]+\mathbb{E}\left[B_{t-s}^2\right]-t \\
         &=B_s^2 + t - s - t \\
