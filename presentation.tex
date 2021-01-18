@@ -161,7 +161,7 @@
     Let $\mathcal{A}$ be a sub-$\sigma$-algebra of $\mathcal{F}$, $\alpha,\beta \in \mathbb{R}$, and let $f,g \, : \, \Omega \rightarrow \mathbb{R}$ be $\mathbb{P}$-integrable.
     Show that
     \begin{align}
-        \mathbb{E}^\mathcal{A}[\alpha f + \beta g] = \mathbb{E}^\mathcal{A}[\alpha f] + \mathbb{E}^\mathcal{A}[\beta g], \quad \mathbb{P}-\text{a.s.} 
+        \mathbb{E}^\mathcal{A}[\alpha f + \beta g] = \alpha \mathbb{E}^\mathcal{A}[ f] + \beta\mathbb{E}^\mathcal{A}[g], \quad \mathbb{P}-\text{a.s.} 
     \end{align}
 
     \vspace{10pt}
@@ -186,8 +186,8 @@
     denote the $\sigma$-algebra induced by $X_1,\ldots,X_m$.
     Show that
     \begin{align}
-        \mathbb{E}^{\mathcal{F}_m }\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right], \\
-        \mathbb{E}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right)\left(\prod_{j=m+1}^n \mathbb{E}[X_j]\right).
+        \mathbb{E}^{\mathcal{F}_m}\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right], \\
+        \mathbb{E}^{\mathcal{F}_m}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right)\left(\prod_{j=m+1}^n \mathbb{E}[X_j]\right).
     \end{align}
 
     \vspace{10pt}
@@ -202,20 +202,20 @@
     \end{align}
     Thus we have that
     \begin{align}
-        \mathbb{E}\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right].
+        \mathbb{E}^{\mathcal{F}^m}\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right].
     \end{align}
 \end{frame2}
 
 \begin{frame2}
-    For the second part we have that, because $X_1,\ldots,X_m \in \mathcal{M}(F^m)$ and by independence
+    For the second part we have that, because $X_1,\ldots,X_m \in \mathcal{M}(\mathcal{F}^m)$ and by independence
     \begin{align}
-        \mathbb{E}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right) \mathbb{E}^{\mathcal{F}^m}\left[\prod_{j=m+1}^n X_j\right] \\
+        \mathbb{E}^{\mathcal{F}^m}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right) \mathbb{E}^{\mathcal{F}^m}\left[\prod_{j=m+1}^n X_j\right] \\
         &= \left(\prod_{i=1}^m X_i\right) \mathbb{E}\left[\prod_{j=m+1}^n X_j\right] \\
         &= \left(\prod_{i=1}^m X_i\right)\left(\prod_{j=m+1}^n \mathbb{E}[X_j]\right).
     \end{align}
 \end{frame2}
 
-\section{Brownian Motions}
+\section{Brownian Motion}
 
 \subsection{Strategy}
 \begin{frame2}
@@ -229,17 +229,17 @@
 \subsection{Definition}
 
 \begin{frame2}
-    \task{Define $\nu$} 
-    \textbf{Definition.} Let $(\Omega,\mathcal{F},\mathbb{P})$ be a probability space and $d\in\mathbb{N}$.
+    % \task{Define $\nu$} 
+    \textbf{Definition 5.38.} Let $(\Omega,\mathcal{F},\mathbb{P})$ be a probability space and $d\in\mathbb{N}$.
     Then a stochastic process $B = (B_t)_{t\geq 0}$ on $(\Omega,\mathcal{F},\mathbb{P})$ with target space $(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ and parameter set $[0,\infty)$ is called a $d$-dimensional \textit{standard Brownian motion} or, synonymously, \textit{Wiener process} on $(\Omega,\mathcal{F},\mathbb{P})$, iff it has the following four properties:
     \begin{enumerate}
         \item All its paths $B_\bullet(\omega)$, $\omega \in \Omega$, are continuous.
-        \item $\mathbb{P}(\{B_0 = 0\})=1$ or, equivalently, $\mathbb{P} \circ B^{-1}_0 = \nu_0$.
+        \item $\mathbb{P}(\{B_0 = 0\})=1$ % or, equivalently, $\mathbb{P} \circ B^{-1}_0 = \nu_0$.
         \item $B$ has independent and stationary increments.
-        \item For all $t > s \geq 0$, the distribution of $B_t - B_s$ is a $d$-dimensional centered Gaussian distribution with covariance matrix $(t-s)\mathbbm{1}_d$ or, in symbols
-        \begin{align}
-            \mathbb{P} \circ (B_t - B_s)^{-1} = \nu_{t - s}.
-        \end{align} 
+        \item For all $t > s \geq 0$, the distribution of $B_t - B_s$ is a $d$-dimensional centered Gaussian distribution with covariance matrix $(t-s)\mathbbm{1}_d$. % or, in symbols
+        % \begin{align}
+        %     \mathbb{P} \circ (B_t - B_s)^{-1} = \nu_{t - s}.
+        % \end{align} 
     \end{enumerate}
 \end{frame2}
 
@@ -251,13 +251,13 @@
     \vspace{10pt}
     \textbf{Solution.} 
     For the first part we have
-    \begin{align}
+    \begin{align*}
         \mathbb{P}(\{B_1 = 0\}) &= \mathbb{P}(\{B_1 - B_0 = 0\}) \\
-        &= \int_0^0 \frac{e^{-\|x\|^2/2}}{(2\pi)^{d/2}}\,\text{d}x = 0.
-    \end{align}
+        &= \int_0^0 \frac{e^{-\|x\|^2/2(1-0)}}{(2\pi(1 - 0))^{d/2}}\,\text{d}x = \int_0^0 \frac{e^{-\|x\|^2/2}}{(2\pi)^{d/2}}\,\text{d}x = 0.
+    \end{align*}
     For the second part let us first look at the event itself
     \begin{align}
-        \{B_\bullet = f\} = \{\omega \in \Omega \ | \ \forall t\geq 0\,:\, B_t = f(t)\}
+        \{B_\bullet = f\} = \{\omega \in \Omega \ | \ \forall t\geq 0\,:\, B_t = f(t)\}.
     \end{align}
 \end{frame2}
 
@@ -292,19 +292,19 @@
 \end{frame2}
 
 \begin{frame2}
-    For the second part observe that from 3. $B$ has independent increments.
+    For the second part observe that from 3.\! $B$ has independent increments.
     Without loss of generality assume that $s \leq t$.
     Then we can rewrite in the following way
     \begin{align}
         \mathbb{E}[B_sB_t] &= \mathbb{E}[B_s((B_t - B_s) + B_s)] \\
         &= \mathbb{E}[B_s(B_t - B_s)] + \mathbb{E}[B_s^2].
     \end{align}
-    Because $B_s = B_s - B_0$ from 1., we have that
+    Because $B_s = B_s - B_0$ from 2., we have that
     \begin{align}
         \mathbb{E}[B_s(B_t - B_s)] &= \mathbb{E}[(B_s - B_0)(B_t - B_s)] \\
         &= \mathbb{E}[(B_s - B_0)]\mathbb{E}[(B_t - B_s)] = 0.
     \end{align} 
-    Where the second equality follows fromt the two increments being independent.
+    Where the second equality follows from the two increments being independent.
     Finally we have
     \begin{align}
         \mathbb{E}[B_sB_t] = \mathbb{E}[B_s^2] = s.
