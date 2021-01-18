@@ -317,21 +317,21 @@
 \begin{frame2}
     \begin{itemize}
         \item Introduce the martingale definition
-        \item Any additional concepts needed
+        % \item Any additional concepts needed
         \item Show that one-dimensional Brownian motion is a martingale
+        \item Defintion of Quadratic Variation
+        \item Find the Quadratic Variation of Brownian motion
     \end{itemize}
  \end{frame2}
 
-\subsection{Prerequisites}
+\subsection{Martingale definition}
 
-\begin{frame2}
-    \task{Define these things}
-    \begin{itemize}
-        \item Brownian Motions (only briefly as this is topic 2)
-        \item Martingale
-        \item Natural Filtration
-    \end{itemize}
-\end{frame2}
+% \begin{frame2}
+%     \task{Define these things}
+%     \begin{itemize}
+%         \item Brownian Motions (only briefly as this is topic 2)
+%     \end{itemize}
+% \end{frame2}
 
 \begin{frame2}
     Let $(M_t)_{t\in I}$ be an adapted $\mathbb{R}$-valued stochastic process such that $M_t: \ \Omega \rightarrow \mathbb{R}$ is $\mathbb{P}$-integrable for every $t\in I$.
@@ -348,22 +348,22 @@
     \end{itemize}
 \end{frame2}
 
-\subsection{One-dimensional Brownian Motions}
+\subsection{One-dimensional Brownian Motion}
 
 \begin{frame2}
     If $B$ is a one-dimensional $(\mathcal{F}_t)_{t\geq 0}$-Brownian motion, then $B$ is a $(\mathcal{F}_t)_{t\geq 0}$-martingale.
 
     In particular, every one-dimensional standard Brownian motion $B$ is a martingale with respect to its natural filtration $(\mathcal{B}_t^B)_{t\geq 0}$.
-    \vspace{5pt}
-    \hrule
-    \vspace{5pt}
-    %\task{Repeat Remark 6.7}
-    Remark 6.7. Let $(M_t)_{t \in I}$ be a $(\mathcal{F}_t)_{t\in I}$-martingale and denote by $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}}_t)_{t\in I},\tilde{\mathbb{P}})$ the completion of $(\Omega, \mathcal{F},(\mathcal{F}_t)_{t\in I},\mathbb{P})$.
-    Then $(M_t)_{t\in I}$ is a $(\tilde{\mathcal{F}}_t)_{t\in I}$-martingale as well, provided that $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}}_t)_{t\in I},\tilde{\mathbb{P}})$ is chosen as the underlying filtered probability space.
-    \vspace{5pt}
-    \hrule
-    \vspace{5pt}
-    By virtue of Remark 6.7 we can further conclude that every one-dimensional standard Brownian motion $B$ is a martingale on the standard filtered probability space $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}_t^B})_{t\geq 0},\tilde{\mathbb{P}})$ obtained by completing $(\Omega, \mathcal{F},(\mathcal{F}_t^B)_{t\geq 0},\mathbb{P})$.
+    % \vspace{5pt}
+    % \hrule
+    % \vspace{5pt}
+    % %\task{Repeat Remark 6.7}
+    % Remark 6.7. Let $(M_t)_{t \in I}$ be a $(\mathcal{F}_t)_{t\in I}$-martingale and denote by $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}}_t)_{t\in I},\tilde{\mathbb{P}})$ the completion of $(\Omega, \mathcal{F},(\mathcal{F}_t)_{t\in I},\mathbb{P})$.
+    % Then $(M_t)_{t\in I}$ is a $(\tilde{\mathcal{F}}_t)_{t\in I}$-martingale as well, provided that $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}}_t)_{t\in I},\tilde{\mathbb{P}})$ is chosen as the underlying filtered probability space.
+    % \vspace{5pt}
+    % \hrule
+    % \vspace{5pt}
+    % By virtue of Remark 6.7 we can further conclude that every one-dimensional standard Brownian motion $B$ is a martingale on the standard filtered probability space $(\Omega, \tilde{\mathcal{F}},(\tilde{\mathcal{F}_t^B})_{t\geq 0},\tilde{\mathbb{P}})$ obtained by completing $(\Omega, \mathcal{F},(\mathcal{F}_t^B)_{t\geq 0},\mathbb{P})$.
 \end{frame2}
 
 \begin{frame2}
@@ -371,7 +371,7 @@
         \item Let us first recall that
         \begin{align}
             \int_{\Omega} |B_t| \, d\mathbb{P} &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R} |x| e^{-x^2/2t} \, dx < \infty, \\
-            \mathbb{E}[B_t] &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx,
+            \mathbb{E}[B_t] &= \frac{1}{(2\pi t)^{1/2}}\int_\mathbb{R}xe^{-x^2/2t} \, dx = 0,
         \end{align}
         for every $t > 0$.
     \end{itemize}
@@ -382,11 +382,66 @@
         \item Since $B_0 = 0$, $\mathbb{P}-$a.s., it follows in particular that $B_t$ is $\mathbb{P}$-integrable with $\mathbb{E}[B_t] = 0$ for all $t \geq 0$.
         \item For all $0 \leq s \leq t < \infty$, we further observe that, $\mathbb{P}-$a.s.,
         \begin{align}
-            \mathbb{E}^{\mathcal{F}_s}[B_t] &= \mathbb{E}^{\mathcal{F}_s}[B_t - B_s] + \mathbb{E}^{\mathcal{F}_s} \\
-             &= \mathbb{E}[B_t - B_s] + B_s = \mathbb{E}[B_t] - \mathbb{E}[B_s] + B_s, 
+            \mathbb{E}^{\mathcal{F}_s}[B_t] &= \mathbb{E}^{\mathcal{F}_s}[B_t - B_s] + \mathbb{E}^{\mathcal{F}_s}\left[B_s\right] \\
+             &= \mathbb{E}[B_t - B_s] + B_s \\ 
+             &= \mathbb{E}[B_t] - \mathbb{E}[B_s] + B_s \\
+             &= B_s, 
         \end{align}
         since the increment $B_t - B_s$ is $\mathcal{F}_s$-independent and $B_s$ is $\mathcal{F}_s$-measurable.
     \end{itemize}
+\end{frame2}
+
+\subsection{Definition of Quadratic Variation}
+
+\begin{frame2}
+    \textbf{Theorem (and definition) 6.50.}
+    Assume that $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t\geq 0},\mathbb{P})$ satisfies the usual hypotheses and let $M$ be a continuous local martingale.
+    Then there exists an up to indishtinguishability unique finite variation process $\langle M \rangle = \left(\langle M \rangle_t\right)_{t\geq 0}$ such that $\langle M \rangle_0 = 0$, $\mathbb{P}$-a.s., and
+    \begin{align}
+        M^2 - \langle M \rangle = \left(M_t^2 - \langle M \rangle_t \right)_{t \geq 0} \text{ is a local martingale.}
+    \end{align}
+    This process is called quadratic variation of $M$.
+    The quadratic variation $\langle M \rangle$ can be chosen such that it is a non-drecreasing process.
+    Furthermore,
+    \begin{align}
+        \langle M^\tau \rangle = \langle M \rangle^\tau,
+    \end{align}
+    up to indishtinguishability for every stopping time $\tau \, : \, \Omega \rightarrow [0,\infty]$.
+    Finally, again up to indishtinguishability,
+    \begin{align}
+        \langle M \rangle = \langle M - M_0 \rangle.
+    \end{align} 
+\end{frame2}
+
+\subsection{Quadratic Variation of 1-dimensional standard Brownian motion}
+
+\begin{frame2}
+    \textbf{Exercise 6.51.}
+    Let $B=(B_t)_{t\geq 0}$ be a 1-dimensional standard Brownian motion.
+    Show that
+    \begin{align}
+        \langle B \rangle_t = t, \quad t\geq 0.
+    \end{align}
+    
+    \vspace{10pt}
+    \textbf{Solution.}
+    Define the continuous finite variation process $(t)_{t\geq 0}$. 
+    Note that, obviously, $\langle B_t \rangle_0 = 0$.
+    Thus what is left to show is that $(B_t^2-t)_{t\geq 0}$ is a local martingale.
+\end{frame2}
+
+\begin{frame2}
+    First of all note that $B_t^2-t$ is $\mathbb{P}$-integrable and adapted.
+    For $t > s$ we have that
+    \begin{align*}
+        \mathbb{E}^{\mathcal{F}_s}\left[B_t^2-t\right]&= \mathbb{E}^{\mathcal{F}_s}\left[(B_s+[B_t-B_s])^2\right]-t \\
+        &= \mathbb{E}^{\mathcal{F}_s}\left[B_s^2\right] +2\mathbb{E}^{\mathcal{F}_s}[B_s(B_t-B_s)] + \mathbb{E}^{\mathcal{F}_s}\left[(B_t-B_s)^2\right]-t \\
+        &=B_s^2 + 2B_s \mathbb{E}^{\mathcal{F}_s}[B_t-B_s]+\mathbb{E}\left[(B_t-B_s)^2\right]-t \\
+        &= B_s^2+2B_s\mathbb{E}[B_t-B_s]+\mathbb{E}\left[B_{t-s}^2\right]-t \\
+        &=B_s^2 + t - s - t \\
+        &= B_s^2 - s,
+    \end{align*}
+    showing that $B_t^2-t$ is in fact a martingale.
 \end{frame2}
 
 \section{Stochastic Integrals}
@@ -557,7 +612,7 @@
     \begin{align}
         \mathbb{E}\left[\sup_{0 \leq s \leq t} \| N_s \| \right] &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s + \frac{1}{2}\langle M \rangle_s} \|\right]\\
         &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s} \| \cdot \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] \\
-        &= \mathbb{E}\left[\sup_s \|e^{\frac{1}{2}\langle M \rangle_s}\|\right] = \sup_s \mathbb{E}\left[ \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] < \infty
+        % &= \mathbb{E}\left[\sup_s \|e^{\frac{1}{2}\langle M \rangle_s}\|\right] = \sup_s \mathbb{E}\left[ \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] < \infty
     \end{align}
     This concludes that $N_t$ is a true martingale. 
 \end{frame2}
