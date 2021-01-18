@@ -104,7 +104,7 @@
 \subsection{Defintion of Conditional Expectation}
 
 \begin{frame2}
-    \textbf{Definition.}
+    \textbf{Definition 4.42.}
     Let $\mathcal{A} \subset \mathcal{F}$ be a sub-$\sigma$-algebra of $\mathcal{F}$ and let $f \, : \, \Omega \rightarrow \mathbb{R}$ be $\mathbb{P}$-integrable.
     Then a function $g \, : \, \Omega \rightarrow \mathbb{R}$ is called a \textit{representative of the conditional expectation of f under the hypothesis} $\mathcal{A}$, iff it is $\mathbb{P}$-integrable, $\mathcal{A}$-\textit{measurable}, and satisfies
     \begin{align}\label{eq:4.15}
@@ -115,10 +115,12 @@
 \subsection{Remark}
 
 \begin{frame2}
-    \textbf{Remark.}
-    Substituting $A = \Omega$ in \eqref{eq:4.15}, we immediately obtain
+    \textbf{Remark 4.46.}
+    Substituting $A = \Omega$ in \eqref{eq:4.15}, we obtain
     \begin{align}
-        \mathbb{E}[f] = \mathbb{E}\left[\mathbb{E}^\mathcal{A}\left[f\right]\right],
+        \int_\Omega f\, d\mathbb{P} &= \int_\Omega g\, d\mathbb{P} \\
+        \mathbb{E}[f] &= \mathbb{E}\left[g\right] \\
+        \mathbb{E}[f] &= \mathbb{E}\left[\mathbb{E}^\mathcal{A}\left[f\right]\right],
     \end{align}
     for all sub-$\sigma$-algebras $\mathcal{A} \subset \mathcal{F}$ and all $\mathbb{P}$-integrable $f \, : \, \Omega \rightarrow \mathbb{C}$.
 \end{frame2}
@@ -136,7 +138,19 @@
 
     \vspace{10pt}
     \textbf{Solution.}
-    \task{to do}
+    By defintion
+    \begin{align}
+        \int_Af\, d\mathbb{P} = \int_Ag\, d\mathbb{P}, \quad A \in \{\emptyset,\Omega\}.
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    \begin{align}
+        \int_\Omega f\, d\mathbb{P} = \mathbb{E}\left[f\right] = \mathbb{E}\left[\mathbb{E}^{\{\emptyset,\Omega\}}\left[f\right]\right] = \int_\Omega g\, d\mathbb{P}.
+    \end{align}
+    \begin{align}
+        \int_\emptyset f\, d\mathbb{P} = 0 = \int_\emptyset g\, d\mathbb{P}.
+    \end{align}
 \end{frame2}
 
 \subsection{Exercise 4.48}
@@ -152,7 +166,11 @@
 
     \vspace{10pt}
     \textbf{Solution.}
-    \task{to do}
+    \begin{align*}
+        &\quad\int_A \mathbb{E}^{\mathcal{A}}\left[\alpha f + \beta g\right] \, d\mathbb{P} = \int_A \alpha f + \beta g \, d\mathbb{P}\\
+        &= \int_A \alpha f \, d\mathbb{P} + \int_A \beta g \, d\mathbb{P} =  \alpha \int_A f \, d\mathbb{P} +  \beta \int_A g \, d\mathbb{P} \\
+        &= \alpha \int_A \mathbb{E}^{\mathcal{A}}\left[f\right] \, d\mathbb{P} +  \beta \int_A \mathbb{E}^{\mathcal{A}}\left[g\right] \, d\mathbb{P} =  \int_A \alpha \mathbb{E}^{\mathcal{A}}\left[f\right] +  \beta \mathbb{E}^{\mathcal{A}}\left[g\right] \, d\mathbb{P}.
+    \end{align*}
 \end{frame2}
 
 \subsection{Exercise 4.51}
@@ -168,7 +186,7 @@
     denote the $\sigma$-algebra induced by $X_1,\ldots,X_m$.
     Show that
     \begin{align}
-        \mathbb{E}\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right], \\
+        \mathbb{E}^{\mathcal{F}_m }\left[ \sum_{i = 1}^n X_i \right] &= \sum_{i=1}^m X_i + \sum_{j = m+1}\mathbb{E}\left[X_j\right], \\
         \mathbb{E}\left[ \prod_{i = 1}^n X_i \right] &= \left(\prod_{i=1}^m X_i\right)\left(\prod_{j=m+1}^n \mathbb{E}[X_j]\right).
     \end{align}
 
@@ -404,6 +422,8 @@
         \end{align*}
     %\end{enumerate} 
 \end{frame2}
+
+\subsection{Exercise 8}
 
 \begin{frame2}
     \textbf{Example 4 (Complex Exponential Process).}
