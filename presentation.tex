@@ -449,8 +449,70 @@
 \subsection{Strategy}
 \begin{frame2}
     \begin{itemize}
-        \item 
+        \item Theorem 6.32
+        \item Definition 6.34 (Elementary stochastic integral)
+        \item Lemma 7.3 (Isometry)
+        \item 7.2.2 Extension of the stochastic integral by isometry
     \end{itemize}
+\end{frame2}
+
+\subsection{Theorem 6.32}
+
+\begin{frame2}
+    \begingroup
+    \footnotesize
+    \textbf{Theorem 6.32.}
+    Consider the case $I = [0,\infty)$ and assume that $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0},\mathbb{P})$ satisfies the usual hypotheses.
+    Let $M^{[n]} = (M_t^{[n]})_{t\geq 0}$ be a right-continuous, square-integrable martingale for every $n \in \mathbb{N}$.
+    Assume that
+    \begin{align}
+        \mathbb{E}\left[(M_t^{[p]} - M_t^{[n]})^2\right] \xrightarrow{n, p \to\infty} 0, \ t \geq 0.
+    \end{align}
+    Then there exists a càdlàg square-integrable martingale $M = \left(M_t\right)_{t \geq 0}$ such that
+    \begin{align}
+        \lim_{n \to \infty} \mathbb{E}\left[(M_t^{[n]} - M_t)^2\right] = 0, \ t \geq 0.
+    \end{align}
+    Every other martingale $M'$ having these properties is indishtinguishable from $M$.
+    Furthermore, there exists integers $ 1 \leq n_1 < n_2 < \ldots$ and some $\mathbb{P}$-zero set $N\in \mathcal{F}$ such that
+    \begin{align}
+        \sup_{s \in [0,t]} \left\|M_s^{[n_j]}(\omega) - M_s(\omega) \right\| \xrightarrow{j \to \infty} 0, \ \omega \in \Omega\backslash N, \, t \geq 0.
+    \end{align}
+    In particular, if all $M^{[n]}$ with $n \in \mathbb{N}$ are continuous, then $M$ can be chosen continuous as well.
+    \endgroup
+\end{frame2}
+
+\subsection{Definition 6.34 (Elementary stochastic integral)}
+
+\begin{frame2}
+    \begingroup
+    \footnotesize
+    \textbf{Defintion 6.34.}
+    Let $Y = (Y_t)_{t\geq 0}$ be some progressively measurable process with target space $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ and let $X$ be a predictable step process having the representation
+    \begin{align}
+        X_t = \sum_{k = 1}^\infty \xi_k \chi_{\{\tau_{k - 1} < t \leq \tau_k\}}, \ t \geq 0.
+    \end{align}
+    for a non decreasing series of stopping times and some $\mathcal{F}_{\tau_{k-1}}$-measurable $\xi_k \, : \, \Omega \to \mathbb{R}$.
+    Then the stochastic integral with integrand $X$ with respect to the intregrator $Y$ is the stochastic process
+    \begin{align}
+        \int X \, dY := \left(\int_0^t X_s \, d Y_s\right)_{t \geq 0}
+    \end{align}
+    defined by
+    \begin{align}
+        \int_0^t X_s \, dY_s := \sum_{k = 1}^\infty \xi_k \left(Y_{\tau_k \wedge t} - Y_{\tau_{k- 1} \wedge t}\right).
+    \end{align}
+    \endgroup
+\end{frame2}
+
+\subsection{Lemma 7.3 (Isometri)}
+
+\begin{frame2}
+    \textbf{Lemma 7.3.}
+\end{frame2}
+
+\subsection{Extension of the stochastic integral}
+
+\begin{frame2}
+    
 \end{frame2}
 
 \section{Itô's Formula}
