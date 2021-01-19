@@ -452,33 +452,9 @@
         \item Theorem 6.32
         \item Definition 6.34 (Elementary stochastic integral)
         \item Lemma 7.3 (Isometry)
+        \item Theorem 7.4 (Approximation by bounded simple processes)
         \item 7.2.2 Extension of the stochastic integral by isometry
     \end{itemize}
-\end{frame2}
-
-\subsection{Theorem 6.32}
-
-\begin{frame2}
-    \begingroup
-    \footnotesize
-    \textbf{Theorem 6.32.}
-    Consider the case $I = [0,\infty)$ and assume that $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0},\mathbb{P})$ satisfies the usual hypotheses.
-    Let $M^{[n]} = (M_t^{[n]})_{t\geq 0}$ be a right-continuous, square-integrable martingale for every $n \in \mathbb{N}$.
-    Assume that
-    \begin{align}
-        \mathbb{E}\left[(M_t^{[p]} - M_t^{[n]})^2\right] \xrightarrow{n, p \to\infty} 0, \ t \geq 0.
-    \end{align}
-    Then there exists a càdlàg square-integrable martingale $M = \left(M_t\right)_{t \geq 0}$ such that
-    \begin{align}
-        \lim_{n \to \infty} \mathbb{E}\left[(M_t^{[n]} - M_t)^2\right] = 0, \ t \geq 0.
-    \end{align}
-    Every other martingale $M'$ having these properties is indishtinguishable from $M$.
-    Furthermore, there exists integers $ 1 \leq n_1 < n_2 < \ldots$ and some $\mathbb{P}$-zero set $N\in \mathcal{F}$ such that
-    \begin{align}
-        \sup_{s \in [0,t]} \left\|M_s^{[n_j]}(\omega) - M_s(\omega) \right\| \xrightarrow{j \to \infty} 0, \ \omega \in \Omega\backslash N, \, t \geq 0.
-    \end{align}
-    In particular, if all $M^{[n]}$ with $n \in \mathbb{N}$ are continuous, then $M$ can be chosen continuous as well.
-    \endgroup
 \end{frame2}
 
 \subsection{Definition 6.34 (Elementary stochastic integral)}
@@ -507,12 +483,137 @@
 
 \begin{frame2}
     \textbf{Lemma 7.3.}
+    Let $X$ be a bounded step process and $M = (M_t)_{t \geq 0}$ a continuous square-integrable martingale.
+    Then we have the isometry
+    \begin{align}
+        \mathbb{E}\left[\left(\int_0^t X_s \, d M_s\right)^2\right] = \mathbb{E}\left[\int_0^t X_s^2 \, d\langle M \rangle_s\right], \ t \geq 0.
+    \end{align}
+\end{frame2}
+
+\subsection{Theorem 7.4}
+
+\begin{frame2}
+    \textbf{Theorem 7.4.}
+    Let $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0},\mathbb{P})$ be a filtered probability space satisfyisng the ususal hypotheses and $M$ a continuous square-integrable martingale.
+    Let $X$ be a progressively measurable stochastic process satisfying
+    \begin{align}
+        \mathbb{E}\left[\int_0^t X_s^2 \, d \langle M \rangle_s \right] < \infty, \ t \geq 0.
+    \end{align}
+    Then there exists a sequence $(X^{[n]})_{n\in \mathbb{N}}$ of bounded simple processes such that
+    \begin{align}
+        \lim_{n \to \infty} \mathbb{E}\left[\int_0^t (X_s^{[n]} - X_s)^2 \, d\langle M \rangle_s\right] = 0.
+    \end{align}
 \end{frame2}
 
 \subsection{Extension of the stochastic integral}
 
 \begin{frame2}
-    
+    Let $M$ be a continuous square integrable martingale and $X$ a progressively measurable process satisfying
+    \begin{align*}
+        \mathbb{E}\left[\int_0^t X_s^2 \, d \langle M \rangle_s \right] < \infty, \ t \geq 0.
+    \end{align*}
+    Theorem 7.4 then gives a sequence $(X^{[n]})_{n\in \mathbb{N}}$ of bounded predictable step processes satisfying
+    \begin{align*}
+        \lim_{n \to \infty} \mathbb{E}\left[\int_0^t (X_s^{[n]} - X_s)^2 \, d\langle M \rangle_s\right] = 0.
+    \end{align*}
+\end{frame2}
+
+\begin{frame2}
+    By the Minkowski inequalities we get that
+    \begin{align*}
+        &\mathbb{E}\left[\int_0^t (X_s^{[m]} - X^{[n]}_s)^2 \, d\langle M \rangle_s\right] \\
+        &\leq \mathbb{E}\left[\int_0^t (X_s^{[m]} - X_s)^2 \, d\langle M \rangle_s\right]  + \mathbb{E}\left[\int_0^t (X_s - X_s^{[n]})^2 \, d\langle M \rangle_s\right].
+    \end{align*}
+    Taking limits entails that
+    \begin{align}
+        \mathbb{E}\left[\int_0^t (X_s^{[m]} - X^{[n]}_s)^2 \, d\langle M \rangle_s\right] \xrightarrow{m,n\to \infty} 0.
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    By linearity and isometry (Lemma 7.3) of the elementary stochastic integral we can rewrite
+    \begin{align*}
+        &\mathbb{E}\left[\int_0^t (X_s^{[m]} - X^{[n]}_s)^2 \, d\langle M \rangle_s\right] \\
+        =\ &\mathbb{E}\left[\left(\int_0^t X_s^{[m]} - X^{[n]}_s \, dM_s\right)^2\right] \\
+        =\ &\mathbb{E}\left[\left(\int_0^t X_s^{[m]}\, dM_s - \int_0^tX^{[n]}_s \, dM_s\right)^2\right].
+    \end{align*}
+    Thus 
+    \begin{align}
+        \mathbb{E}\left[\left(\int_0^t X_s^{[m]}\, dM_s - \int_0^tX^{[n]}_s \, dM_s\right)^2\right] \xrightarrow{m,n\to\infty}0
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    \begingroup
+    \footnotesize
+    \textbf{Theorem 6.32.}
+    Consider the case $I = [0,\infty)$ and assume that $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0},\mathbb{P})$ satisfies the usual hypotheses.
+    Let $M^{[n]} = (M_t^{[n]})_{t\geq 0}$ be a right-continuous, square-integrable martingale for every $n \in \mathbb{N}$.
+    Assume that
+    \begin{align}
+        \mathbb{E}\left[(M_t^{[p]} - M_t^{[n]})^2\right] \xrightarrow{n, p \to\infty} 0, \ t \geq 0.
+    \end{align}
+    Then there exists a càdlàg square-integrable martingale $M = \left(M_t\right)_{t \geq 0}$ such that
+    \begin{align}
+        \lim_{n \to \infty} \mathbb{E}\left[(M_t^{[n]} - M_t)^2\right] = 0, \ t \geq 0.
+    \end{align}
+    Every other martingale $M'$ having these properties is indishtinguishable from $M$.
+    Furthermore, there exists integers $ 1 \leq n_1 < n_2 < \ldots$ and some $\mathbb{P}$-zero set $N\in \mathcal{F}$ such that
+    \begin{align}
+        \sup_{s \in [0,t]} \left\|M_s^{[n_j]}(\omega) - M_s(\omega) \right\| \xrightarrow{j \to \infty} 0, \ \omega \in \Omega\backslash N, \, t \geq 0.
+    \end{align}
+    In particular, if all $M^{[n]}$ with $n \in \mathbb{N}$ are continuous, then $M$ can be chosen continuous as well.
+    \endgroup
+\end{frame2}
+
+\begin{frame2}
+    Theorem 6.32 thus gives a continuous square integrable martingale $(I_t)_{t\geq 0}$ such that
+    \begin{align}
+        \mathbb{E}\left[\left(\int_0^t X_s^{[m]}\, dM_s - I_t\right)^2\right] \xrightarrow{m,n\to\infty}0,
+    \end{align}
+    and every martingale $I'$ having these properties are indishtinguishable from $I$.
+\end{frame2}
+
+\begin{frame2}
+    Next we can verify that $I$, does not depend on the choice of approximating sequence.
+
+    \vspace{10pt}
+    Let $(Y^{[n]})_{n \in \mathbb{N}}$ be another bounded predictable step process such that
+    \begin{align}
+        \lim_{n\to\infty}\mathbb{E}\left[\int_0^t \left(Y_s^{[n]} - X_s\right)^2 \, d\langle M \rangle_s\right] = 0.
+    \end{align}
+    Let $(J_t)_{t\geq 0}$ be a corresponding continuous square-integrable martingale satisfying
+    \begin{align}
+        \mathbb{E}\left[\left(\int_0^t Y_s^{[n]}\, dM_s - J_t\right)^2\right] \xrightarrow{m,n\to\infty}0
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    For every $t\geq 0$, we then obtain
+    \begin{align*}
+        \mathbb{E}\left[(I_t - J_t)^2\right] &= \lim_{n\to\infty}\mathbb{E}\left[\left(\int_0^t X_s^{[n]}\, dM_s - \int_0^tY^{[n]}_s \, dM_s\right)^2\right] \\
+        &=\lim_{n\to\infty}\mathbb{E}\left[\left(\int_0^t X_s^{[n]} - Y^{[n]}_s \, dM_s\right)^2\right] \\
+        &=\lim_{n\to\infty}\mathbb{E}\left[\int_0^t\left( X_s^{[n]} - Y^{[n]}_s\right)^2 \, d\langle M \rangle_s\right] = 0,
+    \end{align*}
+    where we used isometry and
+    \begingroup
+    \footnotesize
+    \begin{align*}
+        \lim_{n \to \infty} \mathbb{E}\left[\int_0^t (X_s^{[n]} - X_s)^2 \, d\langle M \rangle_s\right] = 0, \quad
+        \lim_{n\to\infty}\mathbb{E}\left[\int_0^t \left(Y_s^{[n]} - X_s\right)^2 \, d\langle M \rangle_s\right] = 0.
+    \end{align*}
+    \endgroup
+    The processes $(I_t)_{t\geq 0}$ and $(J_t)_{t\geq 0}$ are thus modification of each other and therfore indishtinguishable as they are both continuous.
+\end{frame2}
+
+\subsection{Definition 7.8}
+
+\begin{frame2}
+    \textbf{Definition 7.8.}
+    Any choice of the up to indishtinguishability well-defined and unique continuous square-integrable martingale $(I_t)_{t \geq 0}$ introduced in the preceeding argumentation is called the stochastic integral of $X$ with respect to $M$ and we write
+    \begin{align*}
+        \int_0^t X_s \, dM_s := I_t, \ t \geq 0, \quad \int X \, dM := \left(\int_0^t X_s \, d M_s \right)_{t\geq 0}.
+    \end{align*}    
 \end{frame2}
 
 \section{Itô's Formula}
