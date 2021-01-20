@@ -168,6 +168,7 @@
     \textbf{Solution.}
     \begin{align*}
         &\quad\int_A \mathbb{E}^{\mathcal{A}}\left[\alpha f + \beta g\right] \, d\mathbb{P} = \int_A \alpha f + \beta g \, d\mathbb{P}\\
+        % &\quad \mathbb{E}^{\mathcal{A}}\left[\alpha f + \beta g\right]  = \alpha f + \beta g  \\
         &= \int_A \alpha f \, d\mathbb{P} + \int_A \beta g \, d\mathbb{P} =  \alpha \int_A f \, d\mathbb{P} +  \beta \int_A g \, d\mathbb{P} \\
         &= \alpha \int_A \mathbb{E}^{\mathcal{A}}\left[f\right] \, d\mathbb{P} +  \beta \int_A \mathbb{E}^{\mathcal{A}}\left[g\right] \, d\mathbb{P} =  \int_A \alpha \mathbb{E}^{\mathcal{A}}\left[f\right] +  \beta \mathbb{E}^{\mathcal{A}}\left[g\right] \, d\mathbb{P}.
     \end{align*}
@@ -738,8 +739,9 @@
     \begin{itemize}
         \item Theorem 9
         \item Proposition 3
-        \item Theorem 10
         \item Exercise 10
+        \item Theorem 10 (Lévy)
+        \item Theorem 13 (Girsanov)
     \end{itemize}
 \end{frame2}
 
@@ -770,24 +772,12 @@
     If $\mathbb{E}\left(e^{\frac{1}{2}\langle M \rangle_t}\right) < \infty$ for all $t \leq T$, then $N$ is a true martingale.
 \end{frame2}
 
-\subsection{Theorem 10}
-
-\begin{frame2}
-    \textbf{Theorem 10 (Lévy).}
-    Fix $d \in \mathbb{N}$.
-    If $M^1,\ldots,M^d$ are elements of $\mathcal{M}_{c,loc}$ starting at 0 almost surely satisfying that
-    \begin{align}
-        \langle M^i,M^j \rangle_t = \delta^{ij}t, \ t \geq 0,
-    \end{align}
-    then $M = (M^1, \ldots, M^d)$ is an $(\mathcal{F}_t)_{t \geq 0}$-Brownian motion.
-\end{frame2}
-
 \subsection{Exercise 10}
 
 \begin{frame2}
     \textbf{Exercise 10.}
     Apply Theorem 9 to show that Proposition 3 holds.
-    Use this to show that the complex-valued process defined as
+    Use this to show that the complex-valued process, defined as
     \begin{align}
         \xi_t := exp\{ \textbf{i}N_t + \frac{1}{2}\| \lambda \|^2 t \}, \ t \geq 0,
     \end{align}
@@ -795,14 +785,14 @@
     \begin{align}
         N := \sum_{j = 1}^d \lambda_j M^j, \ \lambda_1,\ldots,\lambda_d \in \mathbb{R}^d,
     \end{align}
-    in which $M_1, M_2, \ldots, M^d$ are as in Theorem 10.
+    in which $M^1, M^2, \ldots, M^d$ are as in Theorem 10.
 \end{frame2}
 
 \begin{frame2}
     \textbf{Solution.}
     For the first part we need to show that
     \begin{align}
-        \mathbb{E}\left[e^{\frac{1}{2}\langle M \rangle_t}\right] < \infty \Rightarrow \mathbb{E}\left[\sup_{0 \leq s \leq t}\| N_s \|\right] < \infty,
+        \mathbb{E}\left[e^{\frac{1}{2}\langle M \rangle_t}\right] < \infty \quad \Rightarrow \quad \mathbb{E}\left[\sup_{0 \leq s \leq t}\| N_s \|\right] < \infty,
     \end{align}
     where
     \begin{align}
@@ -812,12 +802,18 @@
 
 \begin{frame2}
     Let us start by looking at
-    \begin{align}
+    \begin{align*}
         \mathbb{E}\left[\sup_{0 \leq s \leq t} \| N_s \| \right] &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s + \frac{1}{2}\langle M \rangle_s} \|\right]\\
         &= \mathbb{E}\left[\sup_s \| e^{\textbf{i}M_s} \| \cdot \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] \\
-        % &= \mathbb{E}\left[\sup_s \|e^{\frac{1}{2}\langle M \rangle_s}\|\right] = \sup_s \mathbb{E}\left[ \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] < \infty
-    \end{align}
-    This concludes that $N_t$ is a true martingale. 
+         &= \mathbb{E}\left[\sup_s \|e^{\frac{1}{2}\langle M \rangle_s}\|\right] = \sup_s \mathbb{E}\left[ \|e^{\frac{1}{2}\langle M \rangle_s} \|\right] < \infty
+    \end{align*}
+    Where the last equality holds because for non-decreasing, measurable $(f_n)_{n\geq 0}$ we have that
+    \begin{align*}
+        \int \sup_{n} f_n \, d \mu = \sup_{n} \int f_n \, d \mu. 
+    \end{align*}
+
+    \vspace{10pt}
+    This concludes that $N_t$ is a true martingale by Theorem 9. 
 \end{frame2}
 
 \begin{frame2}
@@ -830,5 +826,65 @@
     \end{align}
     thereby $\xi_t$ is of the form in proposition 3.
 \end{frame2}
+
+\subsection{Theorem 10 (Lévy)}
+
+\begin{frame2}
+    \textbf{Theorem 10 (Lévy).}
+    Fix $d \in \mathbb{N}$.
+    If $M^1,\ldots,M^d$ are elements of $\mathcal{M}_{c,loc}$ starting at 0 almost surely satisfying that
+    \begin{align}
+        \langle M^i,M^j \rangle_t = \delta^{ij}t, \ t \geq 0,
+    \end{align}
+    then $M = (M^1, \ldots, M^d)$ is an $(\mathcal{F}_t)_{t \geq 0}$-Brownian motion.
+    
+    \vspace{10pt}
+    \textbf{Outline of proof.}
+\end{frame2}
+
+\subsection{Theorem 13 (Girsanov)}
+
+\begin{frame2}
+    \textbf{Theorem 13 (Girsanov).}
+    Fix $0 < T < +\infty$.
+    Let $N \in \mathcal{M}_{c,loc}$ and assume that the exponential process $\mathcal{E}(N)$ is a true martingale.
+    If $(M_t)_{0\leq t\leq T}$ is a local martingale on $(\Omega, \mathcal{F}_T, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{P})$, then the process
+    \begin{align*}
+        \tilde{M}_t := M_t - \langle M, N \rangle_t, \ 0 \leq t \leq T,
+    \end{align*}    
+    is a local martingale on $(\Omega, \mathcal{F}_t, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{Q})$, where
+    \begin{align*}
+        \frac{d\mathbb{Q}}{d\mathbb{P}} = \mathcal{E}(N)_T.
+    \end{align*} 
+    Furthermore, it holds that
+    \begin{align*}
+        \langle M \rangle_t = \langle \tilde{M} \rangle_t, \ 0 \leq t \leq T, \ \text{$\mathbb{P}$ and $\mathbb{Q}$ almost surely}.
+    \end{align*}
+\end{frame2}
+
+% \begin{frame2}
+%     Progressiv målelig: 
+% Pointen er vi vil integrere en stokastisk proces, som er en funktion af tiden og $\omega$.
+% Vi vil finde etn sandsynlighed, så
+% \begin{align*}
+% \mathbb{E}\left[\int_0^t X_s \ ds\right]
+% \end{align*} 
+% Hvilket kan skrives som
+%  \begin{align*}
+% \int_{\Omega} \left(\int_0^t X_s (\omega)\ ds\right) d\mathbb{P}
+% \end{align*} 
+% Det Lebesgue ontwegralet. 
+% For at kunne betragte denne skal man skal kende dens målelighed. Ellers kan man ikke integrere. 
+% \end{frame2}
+% \begin{frame2}
+% I forbindelse med målelighed betragter vi en $\sigma$-algebra. 
+% Hele ideen kommer fra Bownian motions, hvor stierne er kontinuerte. For hver $\omega$ er de borel måelige
+%  $B_t(\omega)$ som funktion af tiden t er målelige med Borel([0,t])
+% Fastholder t, så vil billedet være $F_t$ måleligt. 
+% Vi vil gerne have de er simultant målelige (jointly), altså vi vil have
+% $F_t \otimes Borel([0,t])$, hvilket er definitionen. 
+% Vi siger den den progressiv målelig hvis den er målelig mht til den sigma algebra. 
+% Genrelt: Hvis en process har kontinuerte stier/cadlag er også progressiv målelig.
+% \end{frame2}
 
 \end{document}
