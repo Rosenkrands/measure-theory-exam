@@ -449,9 +449,7 @@
 \subsection{Strategy}
 \begin{frame2}
     \begin{itemize}
-        \item Theorem 6.32
         \item Definition 6.34 (Elementary stochastic integral)
-        \item Lemma 7.3 (Isometry)
         \item Theorem 7.4 (Approximation by bounded simple processes)
         \item 7.2.2 Extension of the stochastic integral by isometry
     \end{itemize}
@@ -479,16 +477,6 @@
     \endgroup
 \end{frame2}
 
-\subsection{Lemma 7.3 (Isometri)}
-
-\begin{frame2}
-    \textbf{Lemma 7.3.}
-    Let $X$ be a bounded step process and $M = (M_t)_{t \geq 0}$ a continuous square-integrable martingale.
-    Then we have the isometry
-    \begin{align}
-        \mathbb{E}\left[\left(\int_0^t X_s \, d M_s\right)^2\right] = \mathbb{E}\left[\int_0^t X_s^2 \, d\langle M \rangle_s\right], \ t \geq 0.
-    \end{align}
-\end{frame2}
 
 \subsection{Theorem 7.4}
 
@@ -527,6 +515,15 @@
     Taking limits entails that
     \begin{align}
         \mathbb{E}\left[\int_0^t (X_s^{[m]} - X^{[n]}_s)^2 \, d\langle M \rangle_s\right] \xrightarrow{m,n\to \infty} 0.
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Lemma 7.3.}
+    Let $X$ be a bounded step process and $M = (M_t)_{t \geq 0}$ a continuous square-integrable martingale.
+    Then we have the isometry
+    \begin{align}
+        \mathbb{E}\left[\left(\int_0^t X_s \, d M_s\right)^2\right] = \mathbb{E}\left[\int_0^t X_s^2 \, d\langle M \rangle_s\right], \ t \geq 0.
     \end{align}
 \end{frame2}
 
