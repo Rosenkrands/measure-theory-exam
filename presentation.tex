@@ -741,7 +741,7 @@
         \item Proposition 3
         \item Exercise 10
         \item Theorem 10 (Lévy)
-        \item Theorem 13 (Girsanov)
+        \item Theorem 14 (Girsanov)
     \end{itemize}
 \end{frame2}
 
@@ -825,11 +825,23 @@
         \langle N \rangle_t = \| \lambda \|^2 \cdot t,
     \end{align}
     thereby $\xi_t$ is of the form in proposition 3.
+
+    \vspace{10pt}
+    This concludes that $\xi_t$ is a true martingale as long as
+    \begin{align*}
+        \mathbb{E}\left[e^{\frac{1}{2}\|\lambda\|^2t}\right] < \infty, \ t \leq T.
+    \end{align*}
 \end{frame2}
 
 \subsection{Theorem 10 (Lévy)}
 
 \begin{frame2}
+    \begin{center}
+        \Large
+        What is the exercise used for?
+    \end{center}
+    
+    \vspace{10pt}
     \textbf{Theorem 10 (Lévy).}
     Fix $d \in \mathbb{N}$.
     If $M^1,\ldots,M^d$ are elements of $\mathcal{M}_{c,loc}$ starting at 0 almost surely satisfying that
@@ -839,27 +851,61 @@
     then $M = (M^1, \ldots, M^d)$ is an $(\mathcal{F}_t)_{t \geq 0}$-Brownian motion.
     
     \vspace{10pt}
-    \textbf{Outline of proof.}
+    \textbf{Outline of proof (d=1).}
+    \begin{enumerate}
+        \item $M$ starts at 0 and has continuous paths almost surely
+        \item \alert{For every $t \geq s$}
+        \begin{align*}
+            \alert{M_t - M_s \sim N(0,(t-s))}
+        \end{align*}
+        \item And that
+        \begin{align*}
+            M_t - M_s \text{ is independent of } \mathcal{F}_s.
+        \end{align*}
+    \end{enumerate}
 \end{frame2}
 
 \subsection{Theorem 13 (Girsanov)}
 
 \begin{frame2}
-    \textbf{Theorem 13 (Girsanov).}
-    Fix $0 < T < +\infty$.
-    Let $N \in \mathcal{M}_{c,loc}$ and assume that the exponential process $\mathcal{E}(N)$ is a true martingale.
-    If $(M_t)_{0\leq t\leq T}$ is a local martingale on $(\Omega, \mathcal{F}_T, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{P})$, then the process
+    For $0 < T < \infty$, let $B = (B_t)_{0 \leq t \leq T}$ be an $(\mathcal{F}_t)_{0 \leq t \leq T}$-Brownian motion tin $(\Omega, \mathcal{F}_T,(\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{P})$ and put
     \begin{align*}
-        \tilde{M}_t := M_t - \langle M, N \rangle_t, \ 0 \leq t \leq T,
-    \end{align*}    
-    is a local martingale on $(\Omega, \mathcal{F}_t, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{Q})$, where
-    \begin{align*}
-        \frac{d\mathbb{Q}}{d\mathbb{P}} = \mathcal{E}(N)_T.
-    \end{align*} 
-    Furthermore, it holds that
-    \begin{align*}
-        \langle M \rangle_t = \langle \tilde{M} \rangle_t, \ 0 \leq t \leq T, \ \text{$\mathbb{P}$ and $\mathbb{Q}$ almost surely}.
+        \tilde{B}_t := B_t - \mu t, \ 0 \leq t \leq T, \ \mu \in \mathbb{R}.
     \end{align*}
+    Note that $\tilde{B}$ have continuous paths and satisfy $$\langle \tilde{B} \rangle_t = \langle B \rangle_t = t, t \geq 0.$$
+    However, $\tilde{B}$ is not a martingale because $\mathbb{E}\left[\tilde{B}_t\right] = -\mu t$.
+    Girsanov's Theorem provides a new probability measure $\mathbb{Q}$ under which $\tilde{B}$ is a local martingale.
+
+    % \vspace{10pt}
+    % \begingroup
+    % \footnotesize
+    % \textbf{Theorem 14 (Girsanov).}
+    % % Fix $0 < T < +\infty$.
+    % % Let $N \in \mathcal{M}_{c,loc}$ and assume that the exponential process $\mathcal{E}(N)$ is a true martingale.
+    % % If $(M_t)_{0\leq t\leq T}$ is a local martingale on $(\Omega, \mathcal{F}_T, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{P})$, then the process
+    % % \begin{align*}
+    % %     \tilde{M}_t := M_t - \langle M, N \rangle_t, \ 0 \leq t \leq T,
+    % % \end{align*}    
+    % % is a local martingale on $(\Omega, \mathcal{F}_t, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{Q})$, where
+    % % \begin{align*}
+    % %     \frac{d\mathbb{Q}}{d\mathbb{P}} = \mathcal{E}(N)_T.
+    % % \end{align*} 
+    % % Furthermore, it holds that
+    % % \begin{align*}
+    % %     \langle M \rangle_t = \langle \tilde{M} \rangle_t, \ 0 \leq t \leq T, \ \text{$\mathbb{P}$ and $\mathbb{Q}$ almost surely}.
+    % Let $B = (B_t)_{0 \leq t \leq T}$ be a Brownian motion in $(\Omega, \mathcal{F}_T,(\mathcal{F}_t)_{0\leq t \leq T},\mathbb{P})$, and H a progressively measurable process such that
+    % \begin{align*}
+    %     \mathbb{E}_{\mathbb{P}}\left[e^{\frac{1}{2}\int_0^T H_s^2 \, ds}\right] < \infty.
+    % \end{align*}
+    % Then the process
+    % \begin{align*}
+    %     \tilde{B}_t := B_t - \int_0^t H_s \, ds, \ 0 \leq t \leq T,
+    % \end{align*}
+    % is a Brownian motion on $(\Omega, \mathcal{F}_T, (\mathcal{F}_t)_{0 \leq t \leq T},\mathbb{Q})$, where
+    % \begin{align*}
+    %     d\mathbb{Q} = \mathcal{E}(H \cdot B)_T d\mathbb{P} = \exp\left(\int_0^T H_s \, dB_s - \frac{1}{2}\int_0^T H_s^2 \, ds\right)d\mathbb{P}.
+    % \end{align*}
+    % \endgroup
 \end{frame2}
 
 % \begin{frame2}
