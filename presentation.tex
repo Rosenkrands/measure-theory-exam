@@ -618,10 +618,31 @@
 \subsection{Strategy}
 \begin{frame2}
     \begin{itemize}
+        \item Definition of semi martingales
         \item Itô's formula for semi martingales (+ any necessary preceedings)
         \item Exercise 8 (Part of Example 4)
     \end{itemize}
 \end{frame2}
+
+\subsection{Semi Martingales}
+
+\begin{frame2}
+    Denote by $\mathcal{M}_{c,loc}$ the linear space of $(\mathcal{F}_t)_{t \geq 0}$-continuous local martingales.
+    
+    \vspace{10pt}
+    Denote by $\mathcal{A}_{loc}$ the space of adapted processes whose paths are continuous and locally of bounded variation.
+
+    \vspace{10pt}
+    Let $X = (X_t)_{t \geq 0}$ be a stochastic process defined on $(\Omega, \mathcal{F},(\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$.
+    We say that $X$ is a continuous semimartingales if $X$ can be decomposed as
+    \begin{align}
+        X_t = X_0 + M_t + A_t, \ t \geq 0,
+    \end{align}
+    where $M \in \mathcal{M}_{c,loc}$, $A \in \mathcal{A}_{loc}$.
+    We will denote by $\mathcal{SM}^c$ the linear space of continuous semimartingales.
+\end{frame2}
+
+\subsection{Itô's formula for semi martingales}
 
 \begin{frame2}
     \textbf{Theorem 7.}
@@ -634,6 +655,10 @@
         \begin{align*}
             f(X_t) = f(X_0) &+ \sum_{i = 1}^d\int_0^t\partial_{x_i}f(X_s)\, dX_s \\
             &\quad+ \frac{1}{2}\sum_{i,j=1}^d\int_0^t\partial_{x_i}\partial_{x_j}f(X_s)\, d \langle X^{(i)},X^{(j)}\rangle_s.
+        \end{align*}
+        In the case $d = 1$ we have
+        \begin{align*}
+            f(X_t) = f(X_0) &+ \int_0^t\partial_{X} f(X_s)\, dX_s + \frac{1}{2}\int_0^t\partial^2_X f(X_s)\, d \langle X \rangle_s.
         \end{align*}
     %\end{enumerate} 
 \end{frame2}
@@ -667,13 +692,30 @@
 \begin{frame2}
     Applying Itô's formula again we get
     \begin{align}
-        e^{\frac{1}{2}\langle M \rangle_t} &= 1 + \int_0^t\partial_{\langle M \rangle_s}e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \frac{1}{2}\int_0^t\partial^2_{\langle M \rangle_s} e^{\frac{1}{2}\langle M \rangle_s} \, d \langle\langle M \rangle\rangle_s \nonumber \\
+        e^{\frac{1}{2}\langle M \rangle_t} &= 1 + \int_0^t\partial_{\langle M \rangle}e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \frac{1}{2}\int_0^t\partial^2_{\langle M \rangle} e^{\frac{1}{2}\langle M \rangle_s} \, d \langle\langle M \rangle\rangle_s \nonumber \\
         &= 1 + \frac{1}{2}\int_0^te^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s
     \end{align}
     \begin{align}
-        \sin(M_t) &= \int_0^t\partial_{M_s}\sin(M_s)\, dM_s + \frac{1}{2}\int_0^t\partial_{M_s}^2\sin(M_s) \, d \langle M \rangle_s \\
+        \sin(M_t) &= \int_0^t\partial_{M}\sin(M_s)\, dM_s + \frac{1}{2}\int_0^t\partial_{M}^2\sin(M_s) \, d \langle M \rangle_s \\
         &= \int_0^t \cos(M_s) \, dM_s - \frac{1}{2}\int_0^t\sin(M_s)\, d\langle M \rangle_s.
     \end{align}
+\end{frame2}
+
+\begin{frame2}
+    Using now that
+    \begin{align*}
+        X_t &= X_0 + \int_0^t H_s \, dY_s \\
+        dX_s &= H_s \, dY_s, 
+    \end{align*}
+    which gives that
+    \begin{align*}
+        \int_0^t G_s \, d X_s = \int_0^t G_s H_s \, dY_s.
+    \end{align*}
+    We are able to ``rewrite''
+    \begin{align*}
+        d\left(e^{\frac{1}{2}\langle M \rangle_s}\right) &= \frac{1}{2}e^{\frac{1}{2}\langle M \rangle_s} \, d \langle M \rangle_s, \\
+        d \left(\sin(M_s)\right) &= \cos(M_s) \, dM_s - \frac{1}{2}\sin(M_s)\, d\langle M \rangle_s.
+    \end{align*}
 \end{frame2}
 
 \begin{frame2}
@@ -686,6 +728,7 @@
        &= \int_0^t\cos(M_s)e^{\frac{1}{2}\langle M \rangle_s}\, dM_s \\
        &= \int_0^tN_t^{(1)} \, dM_s.
    \end{align*}
+   which concludes the exercise.
 \end{frame2}
 
 \section{Girsanov-Transformation}
