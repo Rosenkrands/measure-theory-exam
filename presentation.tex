@@ -737,11 +737,80 @@
 \subsection{Strategy}
 \begin{frame2}
     \begin{itemize}
-        \item 
+        \item Definition of the exponential martingale
+        \item Novikov Theorem
+        \item Girsanov Theorem
+        \item Black and Scholes example
     \end{itemize}
 \end{frame2}
 
+\begin{frame2}
+    \textbf{Definition 6.}
+    The process
+    \begin{align*}
+        \mathcal{E}(X)_t:=\exp\{X_t-X_0-\langle X \rangle_t\}, \quad t\geq 0,
+    \end{align*}
+    is called the exponential semimartingale, when $X\in\mathcal{S}\mathcal{M}^c$, and the exponential local martingale, when $X\in\mathcal{M}_{c,loc}$.
+\end{frame2}
 
+\begin{frame2}
+    \textbf{Theorem 12 (Novikov).}
+    Let $M\in\mathcal{M}_{c, loc}$.
+    If for every $t\geq 0$
+    \begin{align*}
+        \mathbb{E}(e^{\frac{1}{2}\langle M\rangle_t})<\infty,
+    \end{align*}
+    then $\mathcal{E}(M)_t$ is a true martingale with $\mathbb{E}(\mathcal{E}(M)_t)=1$, for all $t\geq 0$.
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Theorem 14 (Girsanov).}
+    Let $(B_t)_{t\geq 0}$ be a Brownian motion on $(\Omega, \mathscr{F}, (\mathscr{F}_t)_{t\geq 0}, \mathbb{P})$, and $H$ a progressively measurable process such that 
+    \begin{align*}
+        \mathbb{E}_{\mathbb{P}}(e^{\frac{1}{2}\int_0^T H_s^2 \text{d}s})<\infty.
+    \end{align*}
+    Then the process defined as
+    \begin{align*}
+        \tilde{B}_t:=B_t-\int_0^t H_s \text{d}s, \quad 0\leq t\leq T,
+    \end{align*}
+    is a Brownian motion on $(\Omega, \mathscr{F}_T, (\mathscr{F}_t)_{0\leq t\leq T}, \mathbb{Q})$, where
+    \begin{align*}
+        d\mathbb{Q}=\mathcal{E}(H\cdot B)_T \ d \mathbb{P} = exp\left\{\int_0^T H_s \ d B_s - \frac{1}{2} \int_0^T H_s^2 \ ds\right\} \ d \mathbb{P}.
+    \end{align*}
+    Furthermore $\mathbb{Q} \sim \mathbb{P}$.
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Example 13 (Black and Scholes).}
+    \begin{itemize}
+        \item Consider the Black and Scholes model
+        \begin{align*}
+            \text{d}A_t=rA_t\text{d}t, \quad A_0=1, \quad \frac{\text{d}S_t}{S_t}=\mu \text{d}t+\sigma \text{d} B_t, \quad S_0=s_0>0.
+        \end{align*}
+        \item We have seen that
+        \begin{align*}
+            A_t&=e^{-rt},\\
+            S_t&=s_0 \ e^{(\mu-\frac{\sigma^2}{2})t+\sigma B_t} \quad t \geq 0.
+        \end{align*}
+    \end{itemize}
+\end{frame2}
+
+\begin{frame2}
+    \begin{itemize}
+        \item Itô's formel kan kan simplificeres til
+        \begin{align*}
+            \tilde{S}_t &= e^{-rt}S_t\\
+            &= x_0+\int_0^t\partial_{x_1}\tilde{S}_t\ \text{d}s + \int_0^t\partial_{x_2}\tilde{S}_t\ \text{d}B_s + \frac{1}{2}\int_0^t\partial_{x_2}^2 \tilde{S}_t \ d s
+        \end{align*}
+        \item Hertil finder vi de afledte
+        \begin{align*}
+            \tilde{S}_t =\mathrm{e}^{-rt}s_0 \ \mathrm{e}^{(\mu-\frac{\sigma^2}{2})t+\sigma B_t}
+        \end{align*}
+        \item $\partial_t \tilde{S}_t = \left\{ \mu - r -  \frac{\sigma^2}{2}\right\}\tilde{S}_t$
+        \item $\partial_{B_t} \tilde{S}_t = \sigma \tilde{S}_t$
+        \item $\partial^2_{B_t} \tilde{S}_t = \sigma^2 \tilde{S}_t$
+    \end{itemize}
+\end{frame2}
 
 % \begin{frame2}
 %     Progressiv målelig: 
