@@ -846,12 +846,23 @@
     \begin{align}
         d\mathbb{Q} = \exp\left(\int_0^T \frac{r - \mu}{\sigma}\, dB_s - \frac{1}{2}\int_0^T H_s^2 \, ds\right) \, d\mathbb{P}.
     \end{align}
-    This further gives that $\mathbb{Q}$ is a local martingale measure and
+    This further gives that $\mathbb{Q}$ is a local martingale measure as the discounted price process is a local martingale w.r.t. $\mathbb{Q}$
     \begin{align}
-        \tilde{S}_t = s_0 + \int_0^t\sigma\tilde{S}_s \, d\tilde{B}_s.
+        \tilde{S}_t = s_0 + \int_0^t\sigma\tilde{S}_s \, d\tilde{B}_s,
     \end{align}
+    because the stochastic integral w.r.t.\! to the Brownian motion are in general local martingales. 
+\end{frame2}
+
+\begin{frame2}
+    \textbf{Definition}\newline
+    A probability measure $\mathbb{Q}$ on $(\Omega,\mathscr{F}_T)$ is said to be a local martingale measure if the discounted process $(\tilde{P}_t)_{0\leq t \leq T}$ is a $\mathbb{Q}$ local martingale.
+
+    \vspace{10pt}
     \textbf{The First Fundamental Theorem of Asset Pricing}\newline
     The market $M$ is arbitrage free, if there exists a local martingale measure $\mathbb{Q}$ that is equivalent to $\mathbb{P}$.
+
+    \vspace{10pt}
+    Thus we have shown that the Black \& Scholes model is arbitrage free.
 \end{frame2}
 
 % \begin{frame2}
