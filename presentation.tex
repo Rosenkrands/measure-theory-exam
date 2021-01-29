@@ -812,6 +812,48 @@
     \end{itemize}
 \end{frame2}
 
+\begin{frame2}
+    Now rewriting
+    \begin{align}
+        \tilde{S}_t &= e^{-rt} = x_0 + \int_0^t \sigma \tilde{S}_s\, dB_s - \int_0^t (r - \mu)\tilde{S}_s\, ds \\
+        &= x_0 + \int_0^t \sigma \tilde{S}_s \, d \tilde{B}_s,
+    \end{align}
+    where
+    \begin{align}
+        \tilde{B}_t := B_t - \frac{(r - \mu)}{\sigma}t, \ t \geq 0.
+    \end{align}
+    Which follows from
+    \begin{align}
+        \tilde{S}_t &= x_0 + \int_0^t \sigma \tilde{S}_s \, d\left(B_s - \frac{r - \mu}{\sigma}s\right) \\
+        &= x_0 + \int_0^t \sigma \tilde{S}_s \, dB_s - \int_0^t (r - \mu)\tilde{S}_t \, ds.
+    \end{align}
+\end{frame2}
+
+\begin{frame2}
+    Applying Girsanov's Theorem to
+    \begin{align}
+        \tilde{B}_t := B_t - \int_0^t H_s \, ds,
+    \end{align}
+    where $H_t := \frac{r - \mu}{\sigma}$ denotes the market price of risk.
+\end{frame2}
+
+\begin{frame2}
+    Note first that, for all $t \geq 0$
+    \begin{align*}
+        \mathbb{E}\left[\exp\left(\frac{1}{2}\int_0^t H_s^2 \, ds\right)\right] = \mathbb{E}\left[\exp\left(\frac{1}{2}\int_0^t \frac{(r - \mu)^2}{\sigma^2} \, ds\right)\right] < \infty.
+    \end{align*}
+    Novikov's Condition and Girsanov's Theorem imply that the process $\tilde{B}$ is a Brownian motion w.r.t.\! to the measure
+    \begin{align}
+        d\mathbb{Q} = \exp\left(\int_0^T \frac{r - \mu}{\sigma}\, dB_s - \frac{1}{2}\int_0^T H_s^2 \, ds\right) \, d\mathbb{P}.
+    \end{align}
+    This further gives that $\mathbb{Q}$ is a local martingale measure and
+    \begin{align}
+        \tilde{S}_t = s_0 + \int_0^t\sigma\tilde{S}_s \, d\tilde{B}_s.
+    \end{align}
+    \textbf{The First Fundamental Theorem of Asset Pricing}\newline
+    The market $M$ is arbitrage free, if there exists a local martingale measure $\mathbb{Q}$ that is equivalent to $\mathbb{P}$.
+\end{frame2}
+
 % \begin{frame2}
 %     Progressiv målelig: 
 % Pointen er vi vil integrere en stokastisk proces, som er en funktion af tiden og $\omega$.
