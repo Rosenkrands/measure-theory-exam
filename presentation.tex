@@ -654,12 +654,12 @@
         Let $X = (X^{(1)},\ldots,X^{(d)})$, where $X^{(i)} \in \mathcal{SM}^c$, for all $i = 1,\ldots,d$.
         If $f \, : \, \mathbb{R}^d \rightarrow \mathbb{R}$ is twice continuously differentiable and $X = (X^{(1)},\ldots,X^{(d)})$, then
         \begin{align*}
-            f(X_t) = f(X_0) &+ \sum_{i = 1}^d\int_0^t\partial_{x_i}f(X_s)\, dX_s \\
+            f(X_t) = f(X_0) &+ \sum_{i = 1}^d\int_0^t\partial_{x_i}f(X_s)\, dX_s^{(i)} \\
             &\quad+ \frac{1}{2}\sum_{i,j=1}^d\int_0^t\partial_{x_i}\partial_{x_j}f(X_s)\, d \langle X^{(i)},X^{(j)}\rangle_s.
         \end{align*}
         In the case $d = 1$ we have
         \begin{align*}
-            f(X_t) = f(X_0) &+ \int_0^t\partial_{X} f(X_s)\, dX_s + \frac{1}{2}\int_0^t\partial^2_X f(X_s)\, d \langle X \rangle_s.
+            f(X_t) = f(X_0) &+ \int_0^t f'(X_s)\, dX_s + \frac{1}{2}\int_0^t f''(X_s)\, d \langle X \rangle_s.
         \end{align*}
     %\end{enumerate} 
 \end{frame2}
