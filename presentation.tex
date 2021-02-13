@@ -92,12 +92,9 @@
     \begin{itemize}
         \item Definition of conditional expectation
         \item Remark 4.46
-        \item Some of these
-        \begin{itemize}
-            \item Exercise 4.47
-            \item Exercise 4.48
-            \item Exercise 4.51
-        \end{itemize}
+        \item Exercise 4.47
+        \item Exercise 4.48
+        \item Exercise 4.51
     \end{itemize}
 \end{frame2}
 
@@ -427,7 +424,7 @@
     \vspace{10pt}
     \textbf{Solution.}
     Define the continuous finite variation process $(t)_{t\geq 0}$. 
-    Note that, obviously, $\langle B_t \rangle_0 = 0$.
+    Note that, obviously, $\langle B \rangle_0 = 0$.
     Thus what is left to show is that $(B_t^2-t)_{t\geq 0}$ is a local martingale.
 \end{frame2}
 
@@ -567,7 +564,7 @@
 \begin{frame2}
     Theorem 6.32 thus gives a continuous square integrable martingale $(I_t)_{t\geq 0}$ such that
     \begin{align}
-        \mathbb{E}\left[\left(\int_0^t X_s^{[m]}\, dM_s - I_t\right)^2\right] \xrightarrow{m,n\to\infty}0,
+        \mathbb{E}\left[\left(\int_0^t X_s^{[m]}\, dM_s - I_t\right)^2\right] \xrightarrow{m\to\infty}0,
     \end{align}
     and every martingale $I'$ having these properties are indishtinguishable from $I$.
 \end{frame2}
@@ -582,7 +579,7 @@
     \end{align}
     Let $(J_t)_{t\geq 0}$ be a corresponding continuous square-integrable martingale satisfying
     \begin{align}
-        \mathbb{E}\left[\left(\int_0^t Y_s^{[n]}\, dM_s - J_t\right)^2\right] \xrightarrow{m,n\to\infty}0
+        \mathbb{E}\left[\left(\int_0^t Y_s^{[n]}\, dM_s - J_t\right)^2\right] \xrightarrow{n\to\infty}0
     \end{align}
 \end{frame2}
 
