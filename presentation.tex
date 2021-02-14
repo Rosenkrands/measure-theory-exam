@@ -632,7 +632,7 @@
 
     \vspace{10pt}
     Let $X = (X_t)_{t \geq 0}$ be a stochastic process defined on $(\Omega, \mathcal{F},(\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$.
-    We say that $X$ is a continuous semimartingales if $X$ can be decomposed as
+    We say that $X$ is a continuous semimartingale if $X$ can be decomposed as
     \begin{align}
         X_t = X_0 + M_t + A_t, \ t \geq 0,
     \end{align}
@@ -678,17 +678,31 @@
 \begin{frame2}
     We will start by observing that Itô's formula applied to the function $f(x,y) = xy$ results in the following integration by parts formula
     \begin{align*}
-        X_tY_t = X_0Y_0 + \int_0^t X_s \, dY_s + \int_0^tY_s\, dX_s + \langle X,Y \rangle_t, \ \forall\, X,Y \in \mathcal{SM}^c.
+        X_tY_t = X_0Y_0 + \int_0^t X_s \, dY_s + \int_0^tY_s\, dX_s + \langle X,Y \rangle_t, \ \forall\, X,Y \in \mathcal{SM}^c,
     \end{align*}
+    
+    \begingroup
+    \footnotesize
+    \color{gray}
+    as $\frac{1}{2}\left(\int_0^t 1 \ d\langle X, Y \rangle_s + \int_0^t 1 \ d\langle X, Y \rangle_s\right) = \langle X, Y \rangle_t.$
+    \endgroup
+    \vspace{10pt}
+
     Thus we get that
     \begin{align}
          N_t^{(2)} &= \sin(M_t)e^{\frac{1}{2}\langle M \rangle_t} \\
         &= \int_0^t \sin(M_s) \, d\left(e^{\frac{1}{2}\langle M \rangle_s}\right) + \int_0^t e^{\frac{1}{2}\langle M \rangle_s} \, d \left(\sin(M_s)\right).
     \end{align}
+
+    \begingroup
+    \footnotesize
+    \color{gray}
+    since $\sin(M_0) = \sin(0) = 0$, and the fact that $e^{\frac{1}{2} \langle M \rangle_s}$ have no martingale part.
+    \endgroup
 \end{frame2}
 
 \begin{frame2}
-    Applying Itô's formula again we get
+    Applying Itô's formula again ($d = 1$) we get
     \begin{align}
         e^{\frac{1}{2}\langle M \rangle_t} &= 1 + \int_0^t\partial_{\langle M \rangle}e^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s + \frac{1}{2}\int_0^t\partial^2_{\langle M \rangle} e^{\frac{1}{2}\langle M \rangle_s} \, d \langle\langle M \rangle\rangle_s \nonumber \\
         &= 1 + \frac{1}{2}\int_0^te^{\frac{1}{2}\langle M \rangle_s}\, d\langle M \rangle_s
