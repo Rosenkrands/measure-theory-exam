@@ -811,7 +811,7 @@
         \item Itô's formula can be simplified to
         \begin{align*}
             \tilde{S}_t &= e^{-rt}S_t\\
-            &= x_0+\int_0^t\partial_{x_1}\tilde{S}_t\ \text{d}s + \int_0^t\partial_{x_2}\tilde{S}_t\ \text{d}B_s + \frac{1}{2}\int_0^t\partial_{x_2}^2 \tilde{S}_t \ d s
+            &= s_0+\int_0^t\partial_{t}\tilde{S}_t\ \text{d}s + \int_0^t\partial_{B_t}\tilde{S}_t\ \text{d}B_s + \frac{1}{2}\int_0^t\partial_{B_t}^2 \tilde{S}_t \ d s
         \end{align*}
 
         \begingroup
@@ -820,21 +820,21 @@
         because the remaining terms have integrator $\langle B_s, s \rangle$ and $\langle s,s \rangle$ which both equal zero.
         \endgroup
 
-        \item Hertil finder vi de afledte
+        \item We can then find the derivatives
         \begin{align*}
-            \tilde{S}_t =\mathrm{e}^{-rt}s_0 \ \mathrm{e}^{(\mu-\frac{\sigma^2}{2})t+\sigma B_t}
+            \tilde{S}_t &=e^{-rt}s_0 \ e^{(\mu-\frac{\sigma^2}{2})t+\sigma B_t} \\
+            \partial_t \tilde{S}_t &= \left\{ \mu - r -  \frac{\sigma^2}{2}\right\}\tilde{S}_t \\
+            \partial_{B_t} \tilde{S}_t &= \sigma \tilde{S}_t \\
+            \partial^2_{B_t} \tilde{S}_t &= \sigma^2 \tilde{S}_t
         \end{align*}
-        \item $\partial_t \tilde{S}_t = \left\{ \mu - r -  \frac{\sigma^2}{2}\right\}\tilde{S}_t$
-        \item $\partial_{B_t} \tilde{S}_t = \sigma \tilde{S}_t$
-        \item $\partial^2_{B_t} \tilde{S}_t = \sigma^2 \tilde{S}_t$
     \end{itemize}
 \end{frame2}
 
 \begin{frame2}
     Now rewriting
     \begin{align}
-        \tilde{S}_t &= e^{-rt} = x_0 + \int_0^t \sigma \tilde{S}_s\, dB_s - \int_0^t (r - \mu)\tilde{S}_s\, ds \\
-        &= x_0 + \int_0^t \sigma \tilde{S}_s \, d \tilde{B}_s,
+        \tilde{S}_t &= s_0 + \int_0^t \sigma \tilde{S}_s\, dB_s - \int_0^t (r - \mu)\tilde{S}_s\, ds \\
+        &= s_0 + \int_0^t \sigma \tilde{S}_s \, d \tilde{B}_s,
     \end{align}
     where
     \begin{align}
@@ -842,8 +842,8 @@
     \end{align}
     Which follows from
     \begin{align}
-        \tilde{S}_t &= x_0 + \int_0^t \sigma \tilde{S}_s \, d\left(B_s - \frac{r - \mu}{\sigma}s\right) \\
-        &= x_0 + \int_0^t \sigma \tilde{S}_s \, dB_s - \int_0^t (r - \mu)\tilde{S}_t \, ds.
+        \tilde{S}_t &= s_0 + \int_0^t \sigma \tilde{S}_s \, d\left(B_s - \frac{r - \mu}{\sigma}s\right) \\
+        &= s_0 + \int_0^t \sigma \tilde{S}_s \, dB_s - \int_0^t (r - \mu)\tilde{S}_t \, ds.
     \end{align}
 \end{frame2}
 
@@ -862,7 +862,7 @@
     \end{align*}
     Novikov's Condition and Girsanov's Theorem imply that the process $\tilde{B}$ is a Brownian motion w.r.t.\! to the measure
     \begin{align}
-        d\mathbb{Q} = \exp\left(\int_0^T \frac{r - \mu}{\sigma}\, dB_s - \frac{1}{2}\int_0^T H_s^2 \, ds\right) \, d\mathbb{P}.
+        d\mathbb{Q} = \exp\left(\int_0^T \frac{r - \mu}{\sigma}\, dB_s - \frac{1}{2}\int_0^T \left(\frac{r - \mu}{\sigma}\right)^2 \, ds\right) \, d\mathbb{P}.
     \end{align}
     This further gives that $\mathbb{Q}$ is a local martingale measure as the discounted price process is a local martingale w.r.t. $\mathbb{Q}$
     \begin{align}
@@ -873,9 +873,19 @@
 
 \begin{frame2}
     \textbf{Definition}\newline
-    A probability measure $\mathbb{Q}$ on $(\Omega,\mathscr{F}_T)$ is said to be a local martingale measure if the discounted process $(\tilde{P}_t)_{0\leq t \leq T}$ is a $\mathbb{Q}$ local martingale.
-
+    A probability measure $\mathbb{Q}$ on $(\Omega,\mathscr{F}_T)$ is said to be a local martingale measure if the discounted price process $(\tilde{P}_t)_{0\leq t \leq T}$ is a $\mathbb{Q}$ local martingale.
     \vspace{10pt}
+
+    In our case the discounted price process is
+    \begin{align*}
+        \tilde{P}_t = \frac{1}{A_t}\left(A_t, S_t\right) = \left(1, \tilde{S}_t\right).
+    \end{align*}
+    \begingroup
+    \footnotesize
+    \color{gray}
+    We only need to check that $\tilde{S}_t$ is a martingale, as 1 is clearly a martingale w.r.t.\! any probability measure.
+    \endgroup
+
     \textbf{The First Fundamental Theorem of Asset Pricing}\newline
     The market $M$ is arbitrage free, if there exists a local martingale measure $\mathbb{Q}$ that is equivalent to $\mathbb{P}$.
 
