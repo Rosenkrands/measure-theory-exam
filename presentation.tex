@@ -258,7 +258,7 @@
     For the first part we have
     \begin{align*}
         \mathbb{P}(\{B_1 = 0\}) &= \mathbb{P}(\{B_1 - B_0 = 0\}) \\
-        &= \int_0^0 \frac{e^{-\|x\|^2/2(1-0)}}{(2\pi(1 - 0))^{d/2}}\,\text{d}x = \int_0^0 \frac{e^{-\|x\|^2/2}}{(2\pi)^{d/2}}\,\text{d}x = 0.
+        &= \int_{\{0\}} \frac{e^{-\|x\|^2/2(1-0)}}{(2\pi(1 - 0))^{d/2}}\,\text{d}x = \int_{\{0\}} \frac{e^{-\|x\|^2/2}}{(2\pi)^{d/2}}\,\text{d}x = 0.
     \end{align*}
     For the second part let us first look at the event itself
     \begin{align}
@@ -274,7 +274,7 @@
     \end{align*}
     Notice then that
     \begin{align}
-        P(B_1 = f(1)) = 0 \quad \Rightarrow \quad P(B_\bullet = f) = 0.
+        \mathbb{P}(B_1 = f(1)) = 0 \quad \Rightarrow \quad \mathbb{P}(B_\bullet = f) = 0.
     \end{align}
 \end{frame2}
 
