@@ -135,19 +135,26 @@
 
     \vspace{10pt}
     \textbf{Solution.}
-    By defintion
-    \begin{align}
-        \int_Af\, d\mathbb{P} = \int_Ag\, d\mathbb{P}, \quad A \in \{\emptyset,\Omega\}.
-    \end{align}
+    We start by defining $g := \mathbb{E}\left[f\right]$, then we have by the definition of the conditional expectation that $g$ is a representative iff it is
+    \begin{itemize}
+        \item $\mathbb{P}$-integrable.
+        \item $\mathcal{A}$-measurable.
+        \item It satifies that
+        \begin{align}
+            \int_Af\, d\mathbb{P} = \int_Ag\, d\mathbb{P}, \quad A \in \{\emptyset,\Omega\}.
+        \end{align}
+    \end{itemize} 
 \end{frame2}
 
 \begin{frame2}
+    We verify that it is in fact the case for both $\Omega$ and $\emptyset$,
     \begin{align}
-        \int_\Omega f\, d\mathbb{P} = \mathbb{E}\left[f\right] = \mathbb{E}\left[\mathbb{E}^{\{\emptyset,\Omega\}}\left[f\right]\right] = \int_\Omega g\, d\mathbb{P}.
+        \int_\Omega f\, d\mathbb{P} = \mathbb{E}\left[f\right] = \int_\Omega\mathbb{E}\left[f\right] \, d\mathbb{P} = \int_\Omega g\, d\mathbb{P}.
     \end{align}
     \begin{align}
         \int_\emptyset f\, d\mathbb{P} = 0 = \int_\emptyset g\, d\mathbb{P}.
     \end{align}
+    This shows that $\mathbb{E}\left[f\right] = g = \mathbb{E}^{\{\emptyset,\Omega\}}\left[f\right] \ \mathbb{P}-$a.s.\!
 \end{frame2}
 
 \subsection{Exercise 4.48}
@@ -255,15 +262,16 @@
     \end{align*}
     For the second part let us first look at the event itself
     \begin{align}
-        \{B_\bullet = f\} = \{\omega \in \Omega \ | \ \forall t\geq 0\,:\, B_t = f(t)\}.
+        \{B_\bullet = f\} = \{\omega \in \Omega \ | \ \forall t\geq 0\,:\, B_t(\omega) = f(t)\}.
     \end{align}
 \end{frame2}
 
 \begin{frame2}
     Further we observe that
-    \begin{align}
-        \{B_1 = f(1)\} \subset \{B_\bullet = f\}.
-    \end{align}
+    \begin{align*}
+        \{B_\bullet = f\} &\subset \{B_1 = f(1)\} \\
+        \{\omega \in \Omega \ | \ \forall t\geq 0\,:\, B_t(\omega) = f(t)\} &\subset \{\omega \in \Omega \ | \ B_1(\omega) = f(1)\}.
+    \end{align*}
     Notice then that
     \begin{align}
         P(B_1 = f(1)) = 0 \quad \Rightarrow \quad P(B_\bullet = f) = 0.
@@ -751,10 +759,11 @@
         \item Definition of the exponential martingale
         \item Novikov Theorem
         \item Girsanov Theorem
-        \item Black and Scholes example
+        \item Black \& Scholes example
     \end{itemize}
 \end{frame2}
 
+\subsection{Definition of the exponential martingale}
 \begin{frame2}
     \textbf{Definition 6.}
     The process
@@ -764,6 +773,7 @@
     is called the exponential semimartingale, when $X\in\mathcal{S}\mathcal{M}^c$, and the exponential local martingale, when $X\in\mathcal{M}_{c,loc}$.
 \end{frame2}
 
+\subsection{Novikov's Condition}
 \begin{frame2}
     \textbf{Theorem 12 (Novikov).}
     Let $M\in\mathcal{M}_{c, loc}$.
@@ -774,6 +784,7 @@
     then $\mathcal{E}(M)_t$ is a true martingale with $\mathbb{E}(\mathcal{E}(M)_t)=1$, for all $t\geq 0$.
 \end{frame2}
 
+\subsection{Girsanov's Theorem}
 \begin{frame2}
     \textbf{Theorem 14 (Girsanov).}
     Let $(B_t)_{t\geq 0}$ be a Brownian motion on $(\Omega, \mathscr{F}, (\mathscr{F}_t)_{t\geq 0}, \mathbb{P})$, and $H$ a progressively measurable process such that 
@@ -791,6 +802,7 @@
     Furthermore $\mathbb{Q} \sim \mathbb{P}$.
 \end{frame2}
 
+\subsection{Black \& Scholes Example}
 \begin{frame2}
     \textbf{Example 13 (Black and Scholes).}
     \begin{itemize}
