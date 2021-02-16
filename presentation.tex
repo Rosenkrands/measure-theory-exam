@@ -774,7 +774,7 @@
     \textbf{Definition 6.}
     The process
     \begin{align*}
-        \mathcal{E}(X)_t:=\exp\{X_t-X_0-\langle X \rangle_t\}, \quad t\geq 0,
+        \mathcal{E}(X)_t:=\exp\left\{X_t-X_0-\frac{1}{2}\langle X \rangle_t\right\}, \quad t\geq 0,
     \end{align*}
     is called the exponential semimartingale, when $X\in\mathcal{S}\mathcal{M}^c$, and the exponential local martingale, when $X\in\mathcal{M}_{c,loc}$.
 \end{frame2}
@@ -790,12 +790,30 @@
     then $\mathcal{E}(M)_t$ is a true martingale with $\mathbb{E}(\mathcal{E}(M)_t)=1$, for all $t\geq 0$.
 \end{frame2}
 
+\subsection{Introduction to Girsanov}
+\begin{frame2}
+    Fix $0 < T < +\infty$ and consider $(\Omega, \mathscr{F}_T, (\mathscr{F}_t)_{0 \leq t \leq T}, \mathbb{P})$. Let $\xi$ be a non-negative r.v.\! on $(\Omega, \mathscr{F}_T)$ with $\mathbb{E}\left(\xi\right) = 1$. Then the measure
+    \begin{align*}
+        \mathbb{Q}(A) := \mathbb{E}_\mathbb{P}\left(\chi_A\xi\right), \ A \in \mathscr{F}_T,
+    \end{align*}
+    is a probability measure which is absolutely continuous w.r.t.\! $\mathbb{P}$.
+    We will write
+    \begin{align*}
+        \frac{d\mathbb{Q}}{d\mathbb{P}} = \xi, \text{ on } \mathscr{F}_T.
+    \end{align*}
+    With $\mathbb{Q}$ as above we have
+    \begin{align*}
+        \mathbb{E}_\mathbb{Q}\left[X\right] = \mathbb{E}_\mathbb{P}\left[X\xi\right] = \int_\Omega X(\omega)\xi(\omega) \ d \mathbb{P}(\omega),
+    \end{align*}
+    for an abitrary stochastic process $X \in \mathscr{F}_T$.
+\end{frame2}
+
 \subsection{Girsanov's Theorem}
 \begin{frame2}
     \textbf{Theorem 14 (Girsanov).}
     Let $(B_t)_{t\geq 0}$ be a Brownian motion on $(\Omega, \mathscr{F}, (\mathscr{F}_t)_{t\geq 0}, \mathbb{P})$, and $H$ a progressively measurable process such that 
     \begin{align*}
-        \mathbb{E}_{\mathbb{P}}(e^{\frac{1}{2}\int_0^T H_s^2 \text{d}s})<\infty.
+        \mathbb{E}_{\mathbb{P}}(e^{\frac{1}{2}\langle H \cdot B \rangle_T}) = \mathbb{E}_{\mathbb{P}}(e^{\frac{1}{2}\int_0^T H_s^2 \text{d}s})<\infty.
     \end{align*}
     Then the process defined as
     \begin{align*}
@@ -810,7 +828,6 @@
 
 \subsection{Black \& Scholes Example}
 \begin{frame2}
-    \textbf{Example 13 (Black and Scholes).}
     \begin{itemize}
         \item Consider the Black and Scholes model
         \begin{align*}
@@ -818,7 +835,7 @@
         \end{align*}
         \item We have seen that
         \begin{align*}
-            A_t&=e^{-rt},\\
+            A_t&=e^{rt},\\
             S_t&=s_0 \ e^{(\mu-\frac{\sigma^2}{2})t+\sigma B_t} \quad t \geq 0.
         \end{align*}
     \end{itemize}
@@ -829,7 +846,7 @@
         \item Itô's formula can be simplified to
         \begin{align*}
             \tilde{S}_t &= e^{-rt}S_t\\
-            &= s_0+\int_0^t\partial_{t}\tilde{S}_t\ \text{d}s + \int_0^t\partial_{B_t}\tilde{S}_t\ \text{d}B_s + \frac{1}{2}\int_0^t\partial_{B_t}^2 \tilde{S}_t \ d s
+            &= s_0+\int_0^t\partial_{t}\tilde{S}_s\ \text{d}s + \int_0^t\partial_{B_t}\tilde{S}_s\ \text{d}B_s + \frac{1}{2}\int_0^t\partial_{B_t}^2 \tilde{S}_s \ d s
         \end{align*}
 
         \begingroup
